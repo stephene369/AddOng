@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADD-ONG - Association pour le Développement Durable</title>
+    <meta name="description" content="ADD-ONG œuvre pour le développement durable au Bénin à travers des projets d'entrepreneuriat agricole, de reboisement et d'autonomisation des femmes.">
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Animation classes */
+        .animate-from-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.7s ease-out;
+        }
+        
+        .animate-from-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.7s ease-out;
+        }
+        
+        .show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        /* Bubble animation */
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(14, 243, 14, 0.466);
+            animation: float 8s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-20px) translateX(10px); }
+        }
+    </style>
+</head>
+<body class="bg-white font-sans">
+    <!-- Background bubbles -->
+    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div class="bubble w-32 h-32 top-1/4 left-1/4"></div>
+        <div class="bubble w-48 h-48 top-3/4 left-1/2" style="animation-delay: 2s;"></div>
+        <div class="bubble w-24 h-24 top-1/2 left-3/4" style="animation-delay: 4s;"></div>
+        <div class="bubble w-40 h-40 top-1/3 left-1/3" style="animation-delay: 6s;"></div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-lime-500">
+                <i class="fas fa-leaf mr-2"></i>ADD-ONG
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-6">
+                <a href="#" class="text-gray-700 hover:text-lime-500 transition">Accueil</a>
+                <a href="#about" class="text-gray-700 hover:text-lime-500 transition">À propos</a>
+                <a href="#projects" class="text-gray-700 hover:text-lime-500 transition">Projets</a>
+                <a href="#news" class="text-gray-700 hover:text-lime-500 transition">Actualités</a>
+                <a href="#support" class="text-gray-700 hover:text-lime-500 transition">Nous soutenir</a>
+                <a href="#contact" class="text-gray-700 hover:text-lime-500 transition">Contact</a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden" x-data="{ open: false }">
+                <button @click="open = !open" class="text-gray-700 focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+                
+                <!-- Mobile Menu -->
+                <div x-show="open" @click.away="open = false" class="absolute top-16 right-0 left-0 bg-white shadow-md py-2 px-4">
+                    <a href="#" class="block py-2 text-gray-700 hover:text-lime-500">Accueil</a>
+                    <a href="#about" class="block py-2 text-gray-700 hover:text-lime-500">À propos</a>
+                    <a href="#projects" class="block py-2 text-gray-700 hover:text-lime-500">Projets</a>
+                    <a href="#news" class="block py-2 text-gray-700 hover:text-lime-500">Actualités</a>
+                    <a href="#support" class="block py-2 text-gray-700 hover:text-lime-500">Nous soutenir</a>
+                    <a href="#contact" class="block py-2 text-gray-700 hover:text-lime-500">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-blue-900 text-white py-20">
+        <div class="container mx-auto px-4 flex flex-col items-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-center mb-6 animate-from-left show">Ensemble pour un développement durable</h1>
+            <p class="text-xl text-center max-w-2xl mb-10 animate-from-right show">ADD-ONG œuvre pour un développement durable et équitable au Bénin à travers des projets innovants et inclusifs.</p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="#support" class="bg-lime-500 hover:bg-lime-600 text-white font-bold py-3 px-6 rounded-full transition">Faire un don</a>
+                <a href="#projects" class="bg-white hover:bg-gray-100 text-blue-900 font-bold py-3 px-6 rounded-full transition">Découvrir nos projets</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-blue-900">Nos projets phares</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden animate-from-left" data-animate>
+                    <img src="https://images.pexels.com/photos/2252584/pexels-photo-2252584.jpeg" alt="Projet de reboisement" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-blue-900">Reboisement communautaire</h3>
+                        <p class="text-gray-700 mb-4">Plantation de milliers d'arbres indigènes avec la participation active des communautés locales de Parakou.</p>
+                        <a href="#" class="text-lime-500 hover:text-lime-600 font-medium">En savoir plus <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden animate-from-left" data-animate>
+                    <img src="https://images.pexels.com/photos/7096/people-woman-coffee-meeting.jpg" alt="Formation en entrepreneuriat" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-blue-900">Entrepreneuriat agricole</h3>
+                        <p class="text-gray-700 mb-4">Formation des jeunes entrepreneurs locaux en gestion d'entreprise, marketing agricole et accès au financement.</p>
+                        <a href="#" class="text-lime-500 hover:text-lime-600 font-medium">En savoir plus <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden animate-from-left" data-animate>
+                    <img src="https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg" alt="Autonomisation des femmes" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-blue-900">Droits des femmes</h3>
+                        <p class="text-gray-700 mb-4">Sensibilisation sur les droits des femmes dans les zones rurales, l'éducation et l'autonomisation économique.</p>
+                        <a href="#" class="text-lime-500 hover:text-lime-600 font-medium">En savoir plus <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#projects" class="bg-blue-900 hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-full inline-block transition">Voir tous nos projets</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-opacity-0">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2 animate-from-left" data-animate>
+                    <h2 class="text-3xl font-bold mb-6 text-blue-900">À propos d'ADD-ONG</h2>
+                    <p class="text-gray-700 mb-4">ADD-ONG (Association pour le Développement Durable) est une organisation non gouvernementale béninoise engagée à créer un impact positif et durable dans les communautés vulnérables.</p>
+                    <p class="text-gray-700 mb-4">Nos valeurs fondamentales sont l'équité, la durabilité, la transparence et l'innovation. Nous croyons fermement que chaque personne mérite de vivre dans la dignité et d'avoir accès aux ressources essentielles.</p>
+                    <p class="text-gray-700 mb-6">Notre équipe est composée de professionnels dévoués et de bénévoles passionnés qui travaillent ensemble pour faire une différence tangible au Bénin.</p>
+                    <a href="#" class="text-lime-500 hover:text-lime-600 font-medium">En savoir plus sur notre histoire <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+                <div class="md:w-1/2 animate-from-right" data-animate>
+                    <img src="https://images.pexels.com/photos/6646917/pexels-photo-6646917.jpeg" alt="Notre équipe" class="rounded-lg shadow-lg w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Impact Numbers -->
+<section class="py-16 bg-lime-500  text-white">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">Notre impact en chiffres</h2>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+            <div class="animate-from-left" data-animate>
+                <i class="fas fa-tree text-4xl mb-4"></i>
+                <div class="text-4xl font-bold mb-2">
+                    <span class="counter" data-target="5000">0</span>+
+                </div>
+                <p class="text-xl">Arbres plantés</p>
+            </div>
+            
+            <div class="animate-from-left" data-animate>
+                <i class="fas fa-users text-4xl mb-4"></i>
+                <div class="text-4xl font-bold mb-2">
+                    <span class="counter" data-target="500">0</span>+
+                </div>
+                <p class="text-xl">Entrepreneurs formés</p>
+            </div>
+            
+            <div class="animate-from-left" data-animate>
+                <i class="fas fa-female text-4xl mb-4"></i>
+                <div class="text-4xl font-bold mb-2">
+                    <span class="counter" data-target="1000">0</span>+
+                </div>
+                <p class="text-xl">Femmes soutenues</p>
+            </div>
+            
+            <div class="animate-from-left" data-animate>
+                <i class="fas fa-hands-helping text-4xl mb-4"></i>
+                <div class="text-4xl font-bold mb-2">
+                    <span class="counter" data-target="50">0</span>+
+                </div>
+                <p class="text-xl">Bénévoles actifs</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- News Section -->
+    <section id="news" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-blue-900">Actualités</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- News 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden animate-from-left" data-animate>
+                    <img src="https://images.pexels.com/photos/7096/people-woman-coffee-meeting.jpg" alt="Formation en entrepreneuriat agricole" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="text-gray-500 mb-2">15 juin 2023</div>
+                        <h3 class="text-xl font-bold mb-2 text-blue-900">Formation en entrepreneuriat agricole</h3>
+                        <p class="text-gray-700 mb-4">ADD-ONG a récemment organisé une série de formations sur l'entrepreneuriat agricole, visant à renforcer les capacités des jeunes entrepreneurs locaux.</p>
+                        <a href="#" class="text-lime-500 hover:text-lime-600 font-medium">Lire la suite <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                
+                <!-- News 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden animate-from-left" data-animate>
+                    <img src="https://images.pexels.com/photos/2252584/pexels-photo-2252584.jpeg" alt="Projet de reboisement communautaire" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="text-gray-500 mb-2">28 mai 2023</div>
+                        <h3 class="text-xl font-bold mb-2 text-blue-900">Projet de reboisement communautaire</h3>
+                        <p class="text-gray-700 mb-4">Dans le cadre de ses actions pour la préservation de l'environnement, ADD-ONG a lancé un projet de reboisement dans la région de Parakou.</p>
+                        <a href="#" class="text-lime-500 hover:text-lime-600 font-medium">Lire la suite <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                
+                <!-- News 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden animate-from-left" data-animate>
+                    <img src="https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg" alt="Sensibilisation sur les droits des femmes" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="text-gray-500 mb-2">15 mai 2023</div>
+                        <h3 class="text-xl font-bold mb-2 text-blue-900">Sensibilisation sur les droits des femmes</h3>
+                        <p class="text-gray-700 mb-4">L'ONG a mené une campagne de sensibilisation sur les droits des femmes dans les zones rurales, mettant l'accent sur l'importance de l'éducation.</p>
+                        <a href="#" class="text-lime-500 hover:text-lime-600 font-medium">Lire la suite <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="bg-blue-900 hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-full inline-block transition">Toutes les actualités</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section id="support" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-blue-900">Nous soutenir</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Donation -->
+                <div class="bg-white rounded-lg shadow-md p-8 text-center animate-from-left" data-animate>
+                    <div class="bg-lime-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-hand-holding-heart text-lime-500 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-blue-900">Faire un don</h3>
+                    <p class="text-gray-700 mb-6">Votre contribution financière nous permet de mener à bien nos projets et d'aider les communautés dans le besoin au Bénin.</p>
+                    <a href="#" class="bg-lime-500 hover:bg-lime-600 text-white font-bold py-3 px-6 rounded-full inline-block transition">Donner maintenant</a>
+                </div>
+                
+                <!-- Volunteer -->
+                <div class="bg-white rounded-lg shadow-md p-8 text-center animate-from-left" data-animate>
+                    <div class="bg-lime-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-users text-lime-500 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-blue-900">Devenir bénévole</h3>
+                    <p class="text-gray-700 mb-6">Rejoignez notre équipe de bénévoles passionnés et contribuez directement à nos actions sur le terrain à Parakou.</p>
+                    <a href="#" class="bg-lime-500 hover:bg-lime-600 text-white font-bold py-3 px-6 rounded-full inline-block transition">S'inscrire</a>
+                </div>
+                
+                <!-- Partnership -->
+                <div class="bg-white rounded-lg shadow-md p-8 text-center animate-from-left" data-animate>
+                    <div class="bg-lime-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-handshake text-lime-500 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-blue-900">Devenir partenaire</h3>
+                    <p class="text-gray-700 mb-6">Établissons un partenariat durable entre votre organisation et ADD-ONG pour maximiser notre impact au Bénin.</p>
+                    <a href="#" class="bg-lime-500 hover:bg-lime-600 text-white font-bold py-3 px-6 rounded-full inline-block transition">Nous contacter</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-blue-900 text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Témoignages</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-blue-800 rounded-lg p-6 animate-from-left" data-animate>
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Portrait" class="w-16 h-16 rounded-full mr-4 object-cover">
+                        <div>
+                            <h3 class="font-bold">Aïcha Konaté</h3>
+                            <p class="text-blue-200">Bénéficiaire</p>
+                        </div>
+                    </div>
+                    <p class="italic">"Grâce à la formation en entrepreneuriat agricole d'ADD-ONG, j'ai pu lancer ma propre entreprise de transformation de produits locaux. Cela a changé ma vie et celle de ma famille."</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-blue-800 rounded-lg p-6 animate-from-left" data-animate>
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Portrait" class="w-16 h-16 rounded-full mr-4 object-cover">
+                        <div>
+                            <h3 class="font-bold">Kofi Adeyemi</h3>
+                            <p class="text-blue-200">Bénévole</p>
+                        </div>
+                    </div>
+                    <p class="italic">"Participer aux missions de reboisement d'ADD-ONG a été une expérience transformatrice. J'ai pu contribuer concrètement à la préservation de notre environnement local."</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-blue-800 rounded-lg p-6 animate-from-left" data-animate>
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Portrait" class="w-16 h-16 rounded-full mr-4 object-cover">
+                        <div>
+                            <h3 class="font-bold">Fatou Diallo</h3>
+                            <p class="text-blue-200">Partenaire</p>
+                        </div>
+                    </div>
+                    <p class="italic">"Notre partenariat avec ADD-ONG nous a permis d'étendre notre impact social dans la région de Parakou. Leur professionnalisme et leur engagement sont remarquables."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4 max-w-xl">
+            <div class="bg-white rounded-lg shadow-md p-8 animate-from-left" data-animate>
+                <h2 class="text-2xl font-bold mb-4 text-blue-900 text-center">Restez informé</h2>
+                <p class="text-gray-700 mb-6 text-center">Inscrivez-vous à notre newsletter pour recevoir nos actualités et suivre l'avancement de nos projets au Bénin.</p>
+                
+                <form action="https://formspree.io/f/your-form-id" method="POST" class="space-y-4">
+                    <div>
+                        <input type="email" name="email" placeholder="Votre adresse email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-lime-500">
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="consent" name="consent" required class="mr-2">
+                        <label for="consent" class="text-sm text-gray-700">J'accepte de recevoir des emails de la part d'ADD-ONG</label>
+                    </div>
+                    <button type="submit" class="w-full bg-lime-500 hover:bg-lime-600 text-white font-bold py-3 px-6 rounded-lg transition">S'inscrire</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-blue-900">Contactez-nous</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="animate-from-left" data-animate>
+                    <form action="https://formspree.io/f/your-form-id" method="POST" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-gray-700 mb-2">Nom</label>
+                                <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-lime-500">
+                            </div>
+                            <div>
+                                <label for="firstname" class="block text-gray-700 mb-2">Prénom</label>
+                                <input type="text" id="firstname" name="firstname" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-lime-500">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-lime-500">
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-gray-700 mb-2">Objet</label>
+                            <input type="text" id="subject" name="subject" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-lime-500">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-lime-500"></textarea>
+                        </div>
+                        <p class="text-gray-600 text-sm">Nous nous engageons à vous répondre dans les plus brefs délais.</p>
+                        <button type="submit" class="bg-blue-900 hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-lg transition">Envoyer</button>
+                    </form>
+                </div>
+                
+                <!-- Contact Info & Map -->
+                <div class="animate-from-right" data-animate>
+                    <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+                        <h3 class="text-xl font-bold mb-4 text-blue-900">Nos coordonnées</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-lime-500 mt-1 mr-4"></i>
+                                <p class="text-gray-700">Parakou, Bénin</p>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-phone text-lime-500 mr-4"></i>
+                                <p class="text-gray-700">+229 96 00 83 06</p>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope text-lime-500 mr-4"></i>
+                                <p class="text-gray-700">addong934@gmail.com</p>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-clock text-lime-500 mr-4"></i>
+                                <p class="text-gray-700">Ouvert 24h/24</p>
+                            </div>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold mt-8 mb-4 text-blue-900">Suivez-nous</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-700 hover:text-lime-500 transition"><i class="fab fa-facebook-f text-2xl"></i></a>
+                            <a href="#" class="text-gray-700 hover:text-lime-500 transition"><i class="fab fa-twitter text-2xl"></i></a>
+                            <a href="#" class="text-gray-700 hover:text-lime-500 transition"><i class="fab fa-instagram text-2xl"></i></a>
+                            <a href="#" class="text-gray-700 hover:text-lime-500 transition"><i class="fab fa-linkedin-in text-2xl"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Map -->
+                    <div class="h-80 bg-gray-300 rounded-lg overflow-hidden">
+                        <!-- Embed Google Maps for Parakou, Benin -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63107.97872233101!2d2.5836673!3d9.3380621!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10b11775c7c25eb5%3A0x5ef5c9690a8e5e3!2sParakou%2C%20Benin!5e0!3m2!1sen!2sus!4v1686764321234!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Partners -->
+<section class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12 text-blue-900">Nos partenaires</h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
+            <div class="flex justify-center animate-from-left" data-animate>
+                <div class="bg-blue-100 text-blue-800 font-bold px-6 py-3 rounded-lg border-2 border-blue-300 max-h-16 flex items-center justify-center grayscale hover:grayscale-0 transition">
+                    PNUD
+                </div>
+            </div>
+            <div class="flex justify-center animate-from-left" data-animate>
+                <div class="bg-red-100 text-red-800 font-bold px-6 py-3 rounded-lg border-2 border-red-300 max-h-16 flex items-center justify-center grayscale hover:grayscale-0 transition">
+                    TV5 Monde
+                </div>
+            </div>
+            <div class="flex justify-center animate-from-left" data-animate>
+                <div class="bg-indigo-100 text-indigo-800 font-bold px-6 py-3 rounded-lg border-2 border-indigo-300 max-h-16 flex items-center justify-center grayscale hover:grayscale-0 transition">
+                    USAID
+                </div>
+            </div>
+            
+            <div class="flex justify-center animate-from-left" data-animate>
+                <img src="https://www.giz.de/static/en/images/images_references/giz-logo_1.jpg" alt="GIZ" class="max-h-16 grayscale hover:grayscale-0 transition">
+            </div>
+            <div class="flex justify-center animate-from-left" data-animate>
+                <img src="https://cdn.countryflags.com/thumbs/benin/flag-800.png" alt="Gouvernement du Bénin" class="max-h-16 grayscale hover:grayscale-0 transition">
+            </div>
+            <div class="flex justify-center animate-from-left" data-animate>
+                <img src="https://www.worldbank.org/content/dam/wbr/logo/logo-wb-header-en.svg" alt="Banque Mondiale" class="max-h-16 grayscale hover:grayscale-0 transition">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- About -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">À propos</h3>
+                    <p class="text-blue-200 mb-4">ADD-ONG œuvre pour un développement durable et équitable au Bénin à travers des projets innovants et inclusifs dans les communautés vulnérables.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-blue-200 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-blue-200 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-blue-200 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-blue-200 hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Liens rapides</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-blue-200 hover:text-white transition">Accueil</a></li>
+                        <li><a href="#about" class="text-blue-200 hover:text-white transition">À propos</a></li>
+                        <li><a href="#projects" class="text-blue-200 hover:text-white transition">Projets</a></li>
+                        <li><a href="#news" class="text-blue-200 hover:text-white transition">Actualités</a></li>
+                        <li><a href="#support" class="text-blue-200 hover:text-white transition">Nous soutenir</a></li>
+                        <li><a href="#contact" class="text-blue-200 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
+                            <span>Parakou, Bénin</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3"></i>
+                            <span>+229 96 00 83 06</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3"></i>
+                            <span>addong934@gmail.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock mr-3"></i>
+                            <span>Ouvert 24h/24</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Newsletter -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Newsletter</h3>
+                    <p class="text-blue-200 mb-4">Inscrivez-vous pour recevoir nos actualités</p>
+                    <form action="https://formspree.io/f/your-form-id" method="POST" class="flex">
+                        <input type="email" name="email" placeholder="Votre email" required class="px-4 py-2 w-full rounded-l-lg focus:outline-none text-gray-700">
+                        <button type="submit" class="bg-lime-500 hover:bg-lime-600 px-4 py-2 rounded-r-lg transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-blue-800 mt-8 pt-8 text-center text-blue-200">
+                <p>&copy; 2023 ADD-ONG. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-lime-500 hover:bg-lime-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition opacity-0 invisible">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Animation script -->
+    <script>
+        // Scroll animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('[data-animate]');
+            
+            function checkInView() {
+                animatedElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementTop < windowHeight * 0.9) {
+                        element.classList.add('show');
+                    }
+                });
+            }
+            
+            // Initial check
+            checkInView();
+            
+            // Check on scroll
+            window.addEventListener('scroll', checkInView);
+            
+            // Back to top button
+            const backToTopButton = document.getElementById('back-to-top');
+            
+            function toggleBackToTopButton() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.remove('opacity-0', 'invisible');
+                    backToTopButton.classList.add('opacity-100', 'visible');
+                } else {
+                    backToTopButton.classList.remove('opacity-100', 'visible');
+                    backToTopButton.classList.add('opacity-0', 'invisible');
+                }
+            }
+            
+            // Initial check
+            toggleBackToTopButton();
+            
+            // Check on scroll
+            window.addEventListener('scroll', toggleBackToTopButton);
+            
+            // Scroll to top when clicked
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Counter animation
+function startCounters() {
+    const counters = document.querySelectorAll('.counter');
+    const speed = 5000; // Plus la valeur est basse, plus le compteur est rapide
+    
+    counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        let count = 0;
+        
+        // Vérifie si le compteur est visible
+        const rect = counter.getBoundingClientRect();
+        const isVisible = (rect.top <= window.innerHeight && rect.bottom >= 0);
+        
+        if (isVisible && !counter.classList.contains('counted')) {
+            counter.classList.add('counted');
+            
+            const updateCount = () => {
+                // Calcul de l'incrément en fonction de la valeur cible
+                const increment = target / (speed / 10);
+                
+                if (count < target) {
+                    count += increment;
+                    counter.innerText = Math.ceil(count);
+                    setTimeout(updateCount, 10);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            
+            updateCount();
+        }
+    });
+}
+
+
+// Smooth scrolling for navigation links
+const navLinks = document.querySelectorAll('a[href^="#"]');
+navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+        // Empêcher le comportement par défaut
+        e.preventDefault();
+        
+        // Obtenir l'ID de la cible
+        const targetId = this.getAttribute('href');
+        
+        // Ignorer si le lien est juste "#"
+        if (targetId === '#') return;
+        
+        // Trouver l'élément cible
+        const targetElement = document.querySelector(targetId);
+        
+        // Si l'élément existe, faire défiler jusqu'à lui
+        if (targetElement) {
+            // Obtenir la position de l'élément par rapport au haut de la page
+            const offsetTop = targetElement.getBoundingClientRect().top + window.pageYOffset;
+            
+            // Faire défiler jusqu'à l'élément avec une animation fluide et légèrement lente
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+            
+            // Si le menu mobile est ouvert, le fermer après avoir cliqué
+            if (window.innerWidth < 768) {
+                const mobileMenuButton = document.querySelector('.md\\:hidden button');
+                if (mobileMenuButton && window.Alpine) {
+                    const alpineInstance = window.Alpine.$data(mobileMenuButton.parentElement);
+                    if (alpineInstance && alpineInstance.open) {
+                        alpineInstance.open = false;
+                    }
+                }
+            }
+        }
+    });
+});
+
+
+// Vérifier les compteurs lors du défilement
+window.addEventListener('scroll', startCounters);
+// Vérifier les compteurs au chargement initial
+window.addEventListener('load', startCounters);
+
+    </script>
+</body>
+</html>
