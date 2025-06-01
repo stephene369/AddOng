@@ -1,1287 +1,1912 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALDD - Artisans de la Liberté et du Développement Durable</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style/style.css">
-</head>
-<body class="font-sans">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-lg fixed w-full z-50" x-data="{ open: false }">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center py-4">
-                <div class="flex items-center">
-                    <div class="bg-lime-500 text-white w-12 h-12 rounded-full flex items-center justify-center mr-3">
-                        <!-- <i class="fas fa-leaf text-xl"></i> -->
-                             <img src="img/logo.png" alt="">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ALDD - Artisans de la Liberté et du Développement Durable</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+            defer></script>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <link rel="stylesheet" href="style/style.css">
+    </head>
+    <body class="font-sans">
+        <!-- Navigation -->
+        <nav class="bg-white shadow-lg fixed w-full z-50"
+            x-data="{ open: false }">
+            <div class="container mx-auto px-4">
+                <div class="flex justify-between items-center py-4">
+                    <div class="flex items-center">
+                        <div
+                            class="bg-lime-500 text-white w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                            <!-- <i class="fas fa-leaf text-xl"></i> -->
+                            <img src="img/logo.png" alt>
 
-                    </div>
-                    <div>
-                        <h1 class="text-xl font-bold text-blue-900">ALDD</h1>
-                        <p class="text-xs text-gray-600">Artisans de la Liberté et du Développement Durable</p>
-                    </div>
-                </div>
-                
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex space-x-8">
-                    <a href="#accueil" class="text-gray-700 hover:text-lime-500 transition">Accueil</a>
-                    <a href="#about" class="text-gray-700 hover:text-lime-500 transition">À propos</a>
-                    <a href="#projects" class="text-gray-700 hover:text-lime-500 transition">Projets</a>
-                    <a href="#team" class="text-gray-700 hover:text-lime-500 transition">Équipe</a>
-                    <a href="#news" class="text-gray-700 hover:text-lime-500 transition">Actualités</a>
-                    <a href="#support" class="text-gray-700 hover:text-lime-500 transition">Nous soutenir</a>
-                    <a href="#contact" class="text-gray-700 hover:text-lime-500 transition">Contact</a>
-                </div>
-                
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden">
-                    <button @click="open = !open" class="text-gray-700 hover:text-lime-500">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Mobile Menu -->
-            <div x-show="open" x-transition class="md:hidden pb-4">
-                <a href="#accueil" class="block py-2 text-gray-700 hover:text-lime-500 transition">Accueil</a>
-                <a href="#about" class="block py-2 text-gray-700 hover:text-lime-500 transition">À propos</a>
-                <a href="#projects" class="block py-2 text-gray-700 hover:text-lime-500 transition">Projets</a>
-                <a href="#team" class="block py-2 text-gray-700 hover:text-lime-500 transition">Équipe</a>
-                <a href="#news" class="block py-2 text-gray-700 hover:text-lime-500 transition">Actualités</a>
-                <a href="#support" class="block py-2 text-gray-700 hover:text-lime-500 transition">Nous soutenir</a>
-                <a href="#contact" class="block py-2 text-gray-700 hover:text-lime-500 transition">Contact</a>
-            </div>
-        </div>
-    </nav>
-
-
-
-
-
-
-
-        <!-- Hero Section -->
-    <section id="accueil" class="relative text-white min-h-screen flex flex-col justify-end overflow-hidden">
-        <!-- Background Image Slideshow -->
-        <div class="absolute inset-0 z-0">
-            <div class="slideshow-container w-full h-full">
-                <div class="slide active">
-                    <img src="img/banner.jpg" 
-                         alt="Enfants souriants" 
-                         class="w-full h-full object-cover">
-                </div>
-                <div class="slide">
-                    <img src="img/banner1.jpg" 
-                         alt="Activités communautaires" 
-                         class="w-full h-full object-cover">
-                </div>
-                <div class="slide">
-                    <img src="img/banner2.jpg" 
-                         alt="Environnement et nature" 
-                         class="w-full h-full object-cover">
-                </div>
-            </div>
-            <!-- Gradient overlay for text readability -->
-            <div class="absolute inset-0 bg-gradient-to-t from-blue-900/80 via-blue-800/40 to-transparent"></div>
-        </div>
-        
-        <!-- Content positioned at bottom -->
-        <div class="container mx-auto px-4 relative z-30 pb-16 md:pb-20">
-            <div class="max-w-5xl mx-auto">
-                <div class="text-center md:text-left">
-                    <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight p-4 rounded-lg bg-blue-900/20 backdrop-blur-sm border border-blue-400/30">
-                        Artisans de la Liberté et du 
-                        <span class="text-blue-300">Développement Durable</span>
-                    </h1>
-                    <p class="text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 text-blue-100 max-w-3xl mx-auto md:mx-0 leading-relaxed p-4 rounded-lg bg-blue-900/20 backdrop-blur-sm border border-blue-400/20">
-                        Un monde où les enfants et les jeunes sont éduqués, initiés au leadership et capables d'assurer une meilleure relève.
-                    </p>
-                    
-                    <!-- Stats rapides - cachées sur mobile pour voir l'image -->
-                    <div class="hidden sm:grid grid-cols-3 gap-4 lg:gap-6 mb-6 lg:mb-8 max-w-xl">
-                        <div class="bg-blue-900/30 backdrop-blur-sm rounded-lg p-3 lg:p-4 text-center border border-blue-400/30">
-                            <div class="text-xl lg:text-2xl font-bold text-blue-300">45</div>
-                            <div class="text-xs lg:text-sm text-blue-200">Membres actifs</div>
-                        </div>
-                        <div class="bg-blue-900/30 backdrop-blur-sm rounded-lg p-3 lg:p-4 text-center border border-blue-400/30">
-                            <div class="text-xl lg:text-2xl font-bold text-blue-300">7+</div>
-                            <div class="text-xs lg:text-sm text-blue-200">Projets réalisés</div>
-                        </div>
-                        <div class="bg-blue-900/30 backdrop-blur-sm rounded-lg p-3 lg:p-4 text-center border border-blue-400/30">
-                            <div class="text-xl lg:text-2xl font-bold text-blue-300">2018</div>
-                            <div class="text-xs lg:text-sm text-blue-200">Année de création</div>
-                        </div>
-                    </div>
-                    
-                    <div class="flex flex-col sm:flex-row gap-3 lg:gap-4 justify-center md:justify-start">
-                        <a href="#projects" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 lg:py-4 px-6 lg:px-8 rounded-full text-center transition duration-300 shadow-lg border border-blue-400/50">
-                            <i class="fas fa-rocket mr-2"></i>
-                            Découvrir nos projets
-                        </a>
-                        <a href="#support" class="border-2 border-blue-300 hover:bg-blue-300 hover:text-blue-900 text-blue-100 font-semibold py-3 lg:py-4 px-6 lg:px-8 rounded-full text-center transition duration-300 backdrop-blur-sm bg-blue-900/20">
-                            <i class="fas fa-heart mr-2"></i>
-                            Nous soutenir
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Scroll indicator -->
-        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-30">
-            <a href="#about" class="text-blue-200 hover:text-blue-300 transition duration-300">
-                <i class="fas fa-chevron-down text-xl animate-pulse"></i>
-            </a>
-        </div>
-        
-        <!-- Slideshow indicators -->
-        <div class="absolute bottom-6 right-6 z-30 flex space-x-2">
-            <div class="indicator active w-3 h-3 bg-blue-400 rounded-full opacity-90 cursor-pointer border border-blue-300" data-slide="0"></div>
-            <div class="indicator w-3 h-3 bg-blue-600 rounded-full opacity-50 cursor-pointer border border-blue-400" data-slide="1"></div>
-            <div class="indicator w-3 h-3 bg-blue-600 rounded-full opacity-50 cursor-pointer border border-blue-400" data-slide="2"></div>
-        </div>
-    </section>
-
-
-
-
-
-
-
-
-
-        <!-- About Section -->
-    <section id="about" class="py-16 bg-gradient-to-br from-blue-50 via-white to-green-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold mb-4 text-blue-900">À propos d'ALDD</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-green-500 mx-auto mb-4"></div>
-                <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-                    Créée en novembre 2018 et officiellement enregistrée, ALDD œuvre pour le développement socio-économique des communautés au Bénin.
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-                <div class="text-center lg:text-left">
-                    <div class="bg-gradient-to-br from-blue-100 to-green-100 p-8 rounded-xl shadow-lg border border-blue-200">
-                        <img src="img/logo.png" alt="Logo ALDD" class="w-full max-w-md mx-auto rounded-lg shadow-md">
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-3xl font-bold mb-6 text-blue-900">Notre Mission</h3>
-                    <p class="text-gray-700 mb-6 text-lg leading-relaxed">
-                        Contribuer au leadership des enfants et jeunes afin de produire des leaders de qualité pour un développement durable.
-                    </p>
-                    <div class="space-y-4">
-                        <div class="flex items-start bg-white p-4 rounded-lg shadow-md border-l-4 border-blue-500 hover:shadow-lg transition-shadow">
-                            <i class="fas fa-check-circle text-green-600 mt-1 mr-3 text-lg"></i>
-                            <p class="text-gray-800 font-medium">45 membres actifs engagés pour le changement</p>
-                        </div>
-                        <div class="flex items-start bg-white p-4 rounded-lg shadow-md border-l-4 border-green-500 hover:shadow-lg transition-shadow">
-                            <i class="fas fa-check-circle text-blue-600 mt-1 mr-3 text-lg"></i>
-                            <p class="text-gray-800 font-medium">Créée en novembre 2018, enregistrée officiellement</p>
-                        </div>
-                        <div class="flex items-start bg-white p-4 rounded-lg shadow-md border-l-4 border-purple-500 hover:shadow-lg transition-shadow">
-                            <i class="fas fa-check-circle text-purple-600 mt-1 mr-3 text-lg"></i>
-                            <p class="text-gray-800 font-medium">Basée à Sèmè-Podji, Département de l'Ouémé</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Objectifs spécifiques -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Éducation & Leadership - Bleu -->
-                <div class="bg-white rounded-xl shadow-lg p-6 border border-blue-200 hover:shadow-xl hover:scale-105 transition-all duration-300">
-                    <div class="bg-gradient-to-br from-blue-100 to-blue-200 w-16 h-16 rounded-full flex items-center justify-center mb-4 border-2 border-blue-300">
-                        <i class="fas fa-graduation-cap text-blue-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-blue-900">Éducation & Leadership</h3>
-                    <p class="text-gray-700">Œuvrer à l'éducation et au leadership des enfants et des jeunes pour former les leaders de demain.</p>
-                </div>
-                
-                <!-- Droits des Femmes - Rose -->
-                <div class="bg-white rounded-xl shadow-lg p-6 border border-pink-200 hover:shadow-xl hover:scale-105 transition-all duration-300">
-                    <div class="bg-gradient-to-br from-pink-100 to-pink-200 w-16 h-16 rounded-full flex items-center justify-center mb-4 border-2 border-pink-300">
-                        <i class="fas fa-venus text-pink-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-pink-900">Droits des Femmes</h3>
-                    <p class="text-gray-700">Promouvoir les droits de l'homme et ceux des femmes en particulier, ainsi que l'égalité du genre.</p>
-                </div>
-                
-                <!-- Environnement - Vert -->
-                <div class="bg-white rounded-xl shadow-lg p-6 border border-green-200 hover:shadow-xl hover:scale-105 transition-all duration-300">
-                    <div class="bg-gradient-to-br from-green-100 to-green-200 w-16 h-16 rounded-full flex items-center justify-center mb-4 border-2 border-green-300">
-                        <i class="fas fa-leaf text-green-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-green-900">Environnement</h3>
-                    <p class="text-gray-700">Œuvrer pour la protection de l'environnement et promouvoir des pratiques durables.</p>
-                </div>
-                
-                <!-- Numérique - Violet -->
-                <div class="bg-white rounded-xl shadow-lg p-6 border border-purple-200 hover:shadow-xl hover:scale-105 transition-all duration-300">
-                    <div class="bg-gradient-to-br from-purple-100 to-purple-200 w-16 h-16 rounded-full flex items-center justify-center mb-4 border-2 border-purple-300">
-                        <i class="fas fa-laptop text-purple-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-purple-900">Numérique</h3>
-                    <p class="text-gray-700">Promouvoir l'égalité du genre à l'ère du numérique et l'inclusion technologique.</p>
-                </div>
-                
-                <!-- Paix & Cohésion - Orange -->
-                <div class="bg-white rounded-xl shadow-lg p-6 border border-orange-200 hover:shadow-xl hover:scale-105 transition-all duration-300">
-                    <div class="bg-gradient-to-br from-orange-100 to-orange-200 w-16 h-16 rounded-full flex items-center justify-center mb-4 border-2 border-orange-300">
-                        <i class="fas fa-handshake text-orange-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-orange-900">Paix & Cohésion</h3>
-                    <p class="text-gray-700">Œuvrer pour la promotion de la paix et la cohésion sociale dans les communautés.</p>
-                </div>
-                
-                <!-- Culture & Patrimoine - Rouge -->
-                <div class="bg-white rounded-xl shadow-lg p-6 border border-red-200 hover:shadow-xl hover:scale-105 transition-all duration-300">
-                    <div class="bg-gradient-to-br from-red-100 to-red-200 w-16 h-16 rounded-full flex items-center justify-center mb-4 border-2 border-red-300">
-                        <i class="fas fa-monument text-red-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-red-900">Culture & Patrimoine</h3>
-                    <p class="text-gray-700">Sauvegarder le patrimoine culturel et touristique pour les générations futures.</p>
-                </div>
-            </div>
-            
-            <!-- Section statistiques colorée -->
-            <div class="mt-16 bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 rounded-2xl p-8 text-white">
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
-                    <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                        <div class="text-3xl font-bold mb-2">45</div>
-                        <div class="text-sm opacity-90">Membres Actifs</div>
-                    </div>
-                    <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                        <div class="text-3xl font-bold mb-2">7+</div>
-                        <div class="text-sm opacity-90">Projets Réalisés</div>
-                    </div>
-                    <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                        <div class="text-3xl font-bold mb-2">6</div>
-                        <div class="text-sm opacity-90">Domaines d'Action</div>
-                    </div>
-                    <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                        <div class="text-3xl font-bold mb-2">2018</div>
-                        <div class="text-sm opacity-90">Année de Création</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <!-- Team Section -->
-    <section id="team" class="py-16 bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold mb-4 text-blue-900">Notre Équipe Dirigeante</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-green-500 mx-auto mb-4"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto">
-                    Une équipe passionnée et engagée pour le développement durable et l'autonomisation des jeunes
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <!-- Présidente -->
-                <div class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl hover:scale-105 transition-all duration-300 border border-purple-100">
-                    <div class="relative mb-6">
-                        <div class="bg-gradient-to-br from-purple-500 to-pink-500 w-24 h-24 rounded-full flex items-center justify-center mx-auto shadow-lg">
-                            <i class="fas fa-crown text-white text-3xl"></i>
-                        </div>
-                        <div class="absolute -bottom-2 -right-2 bg-purple-100 w-8 h-8 rounded-full flex items-center justify-center border-2 border-white">
-                            <i class="fas fa-star text-purple-600 text-sm"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-purple-900">DANSI Francine</h3>
-                    <div class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4 inline-block">
-                        Présidente
-                    </div>
-                    <div class="text-sm text-gray-600 space-y-3">
-                        <div class="flex items-center justify-center bg-gray-50 p-3 rounded-lg">
-                            <i class="fas fa-envelope text-purple-500 mr-2"></i>
-                            <span class="text-xs">francinedansi49@gmail.com</span>
-                        </div>
-                        <div class="flex items-center justify-center bg-gray-50 p-3 rounded-lg">
-                            <i class="fas fa-phone text-purple-500 mr-2"></i>
-                            <span>+229 01 94 50 77 08</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Secrétaire Générale -->
-                <div class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl hover:scale-105 transition-all duration-300 border border-green-100">
-                    <div class="relative mb-6">
-                        <div class="bg-gradient-to-br from-green-500 to-blue-500 w-24 h-24 rounded-full flex items-center justify-center mx-auto shadow-lg">
-                            <i class="fas fa-file-alt text-white text-3xl"></i>
-                        </div>
-                        <div class="absolute -bottom-2 -right-2 bg-green-100 w-8 h-8 rounded-full flex items-center justify-center border-2 border-white">
-                            <i class="fas fa-pen text-green-600 text-sm"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-green-900">EZIN Cyrilla</h3>
-                    <div class="bg-gradient-to-r from-green-500 to-blue-500 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4 inline-block">
-                        Secrétaire Générale
-                    </div>
-                    <div class="text-sm text-gray-600 space-y-3">
-                        <div class="flex items-center justify-center bg-gray-50 p-3 rounded-lg">
-                            <i class="fas fa-envelope text-green-500 mr-2"></i>
-                            <span class="text-xs">Victoriaezin11@gmail.com</span>
-                        </div>
-                        <div class="flex items-center justify-center bg-gray-50 p-3 rounded-lg">
-                            <i class="fas fa-phone text-green-500 mr-2"></i>
-                            <span>+229 01 52 37 13 92</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Directeur Exécutif -->
-                <div class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl hover:scale-105 transition-all duration-300 border border-orange-100">
-                    <div class="relative mb-6">
-                        <div class="bg-gradient-to-br from-orange-500 to-red-500 w-24 h-24 rounded-full flex items-center justify-center mx-auto shadow-lg">
-                            <i class="fas fa-briefcase text-white text-3xl"></i>
-                        </div>
-                        <div class="absolute -bottom-2 -right-2 bg-orange-100 w-8 h-8 rounded-full flex items-center justify-center border-2 border-white">
-                            <i class="fas fa-cog text-orange-600 text-sm"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-orange-900">ZEGUE Lauriano</h3>
-                    <div class="bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4 inline-block">
-                        Directeur Exécutif
-                    </div>
-                    <div class="text-sm text-gray-600 space-y-3">
-                        <div class="flex items-center justify-center bg-gray-50 p-3 rounded-lg">
-                            <i class="fas fa-envelope text-orange-500 mr-2"></i>
-                            <span class="text-xs">zeguelauriano@gmail.com</span>
-                        </div>
-                        <div class="flex items-center justify-center bg-gray-50 p-3 rounded-lg">
-                            <i class="fas fa-phone text-orange-500 mr-2"></i>
-                            <span>+229 01 66 06 01 57</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Section contact général -->
-            <div class="mt-16 bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 rounded-2xl p-8 text-white text-center">
-                <h3 class="text-2xl font-bold mb-4">Contactez Notre Organisation</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                        <i class="fas fa-envelope text-2xl mb-2"></i>
-                        <p class="text-sm font-semibold">Email Principal</p>
-                        <p class="text-xs opacity-90">alddong1@gmail.com</p>
-                    </div>
-                    <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                        <i class="fas fa-phone text-2xl mb-2"></i>
-                        <p class="text-sm font-semibold">Téléphone</p>
-                        <p class="text-xs opacity-90">+229 01 62 92 58 68</p>
-                    </div>
-                    <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                        <i class="fab fa-facebook text-2xl mb-2"></i>
-                        <p class="text-sm font-semibold">Facebook</p>
-                        <p class="text-xs opacity-90">@ongALDD</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Impact Numbers -->
-    <section class="py-16 bg-gradient-to-r from-blue-600 via-white-0 to-green-600 text-white relative overflow-hidden">
-        <!-- Motifs décoratifs en arrière-plan -->
-        <div class="absolute inset-0 opacity-10">
-            <div class="absolute top-10 left-10 w-20 h-20 bg-white rounded-full"></div>
-            <div class="absolute top-32 right-20 w-16 h-16 bg-white rounded-full"></div>
-            <div class="absolute bottom-20 left-1/4 w-12 h-12 bg-white rounded-full"></div>
-            <div class="absolute bottom-32 right-10 w-24 h-24 bg-white rounded-full"></div>
-        </div>
-        
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold mb-4">Notre Impact en Chiffres</h2>
-                <div class="w-24 h-1 bg-white mx-auto mb-4"></div>
-                <p class="text-xl opacity-90 max-w-2xl mx-auto">
-                    Des résultats concrets qui témoignent de notre engagement pour le développement durable
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-                <!-- Membres actifs -->
-                <div class="bg-white/20 backdrop-blur-sm rounded-xl p-6 hover:bg-white/30 transition-all duration-300 hover:scale-105 border border-white/30">
-                    <div class="bg-blue-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                        <i class="fas fa-users text-white text-2xl"></i>
-                    </div>
-                    <div class="text-4xl font-bold mb-2">
-                        <span class="counter" data-target="45">0</span>
-                    </div>
-                    <p class="text-lg font-medium opacity-90">Membres Actifs</p>
-                    <div class="w-12 h-1 bg-blue-300 mx-auto mt-2"></div>
-                </div>
-                
-                <!-- Projets réalisés -->
-                <div class="bg-white/20 backdrop-blur-sm rounded-xl p-6 hover:bg-white/30 transition-all duration-300 hover:scale-105 border border-white/30">
-                    <div class="bg-green-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                        <i class="fas fa-project-diagram text-white text-2xl"></i>
-                    </div>
-                    <div class="text-4xl font-bold mb-2">
-                        <span class="counter" data-target="7">0</span>+
-                    </div>
-                    <p class="text-lg font-medium opacity-90">Projets Réalisés</p>
-                    <div class="w-12 h-1 bg-green-300 mx-auto mt-2"></div>
-                </div>
-                
-                <!-- Années d'expérience -->
-                <div class="bg-white/20 backdrop-blur-sm rounded-xl p-6 hover:bg-white/30 transition-all duration-300 hover:scale-105 border border-white/30">
-                    <div class="bg-purple-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                        <i class="fas fa-calendar text-white text-2xl"></i>
-                    </div>
-                    <div class="text-4xl font-bold mb-2">
-                        <span class="counter" data-target="6">0</span>
-                    </div>
-                    <p class="text-lg font-medium opacity-90">Années d'Expérience</p>
-                    <div class="w-12 h-1 bg-purple-300 mx-auto mt-2"></div>
-                </div>
-                
-                <!-- Vies impactées -->
-                <div class="bg-white/20 backdrop-blur-sm rounded-xl p-6 hover:bg-white/30 transition-all duration-300 hover:scale-105 border border-white/30">
-                    <div class="bg-pink-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                        <i class="fas fa-heart text-white text-2xl"></i>
-                    </div>
-                    <div class="text-4xl font-bold mb-2">
-                        <span class="counter" data-target="1000">0</span>+
-                    </div>
-                    <p class="text-lg font-medium opacity-90">Vies Impactées</p>
-                    <div class="w-12 h-1 bg-pink-300 mx-auto mt-2"></div>
-                </div>
-            </div>
-            
-            <!-- Citation inspirante -->
-            <div class="mt-16 text-center">
-                <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-8 max-w-4xl mx-auto border border-white/30">
-                    <i class="fas fa-quote-left text-3xl mb-4 opacity-70"></i>
-                    <p class="text-xl italic mb-4 leading-relaxed">
-                        "Chaque action compte, chaque projet transforme des vies, chaque membre contribue à bâtir un avenir meilleur pour notre communauté."
-                    </p>
-                    <div class="flex items-center justify-center space-x-4">
-                        <div class="w-2 h-2 bg-blue-300 rounded-full"></div>
-                        <div class="w-2 h-2 bg-green-300 rounded-full"></div>
-                        <div class="w-2 h-2 bg-purple-300 rounded-full"></div>
-                        <div class="w-2 h-2 bg-pink-300 rounded-full"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold mb-4 text-gray-800">Nos Projets</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-green-600 mx-auto mb-4"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto">
-                    Découvrez nos initiatives concrètes pour le développement durable et l'autonomisation des communautés
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- DIS-MOI TOUT -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100">
-                    <div class="relative h-64 overflow-hidden">
-                        <div class="carousel" data-carousel="dismoi">
-                            <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg" alt="Dis-moi tout 1" class="w-full h-64 object-cover carousel-image active">
-                            <img src="https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg" alt="Dis-moi tout 2" class="w-full h-64 object-cover carousel-image">
-                        </div>
-                        <div class="absolute top-4 left-4">
-                            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Discussion</span>
-                        </div>
-                        <div class="absolute bottom-4 right-4 flex space-x-2">
-                            <button class="w-2 h-2 bg-white rounded-full opacity-50 carousel-dot active" data-slide="0"></button>
-                            <button class="w-2 h-2 bg-white rounded-full opacity-50 carousel-dot" data-slide="1"></button>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-3 text-gray-800">DIS-MOI TOUT</h3>
-                        <p class="text-gray-600 mb-4 leading-relaxed">
-                            Une initiative qui rassemble les jeunes pour discuter de sujets importants et variés essentiels dans notre société.
-                            Ces rencontres visent à sensibiliser les jeunes sur des enjeux cruciaux, renforcer les liens communautaires et encourager le partage.
-                        </p>
-                        <div class="flex items-center text-blue-600 bg-blue-50 p-3 rounded-lg">
-                            <i class="fas fa-comments mr-3 text-lg"></i>
-                            <span class="font-medium">Discussion • Sensibilisation • Communauté</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- O'KPON -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100">
-                    <div class="relative h-64 overflow-hidden">
-                        <div class="carousel" data-carousel="okpon">
-                            <img src="https://images.pexels.com/photos/8923181/pexels-photo-8923181.jpeg" alt="O'Kpon 1" class="w-full h-64 object-cover carousel-image active">
-                            <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg" alt="O'Kpon 2" class="w-full h-64 object-cover carousel-image">
-                        </div>
-                        <div class="absolute top-4 left-4">
-                            <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Éducation</span>
-                        </div>
-                        <div class="absolute bottom-4 right-4 flex space-x-2">
-                            <button class="w-2 h-2 bg-white rounded-full opacity-50 carousel-dot active" data-slide="0"></button>
-                            <button class="w-2 h-2 bg-white rounded-full opacity-50 carousel-dot" data-slide="1"></button>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-3 text-gray-800">O'KPON</h3>
-                        <p class="text-gray-600 mb-4 leading-relaxed">
-                            Aspire à créer un environnement éducatif dynamique où les enfants et jeunes peuvent acquérir des compétences essentielles
-                            pour relever les défis de demain, avec un accent sur la prise de parole en public.
-                        </p>
-                        <div class="flex items-center text-green-600 bg-green-50 p-3 rounded-lg">
-                            <i class="fas fa-microphone mr-3 text-lg"></i>
-                            <span class="font-medium">Éducation • Leadership • Prise de parole</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- WEEK-END EN VOYAGE -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100">
-                    <div class="relative h-64 overflow-hidden">
-                        <div class="carousel" data-carousel="voyage">
-                            <img src="https://images.pexels.com/photos/2422915/pexels-photo-2422915.jpeg" alt="Week-end voyage 1" class="w-full h-64 object-cover carousel-image active">
-                            <img src="https://images.pexels.com/photos/1659438/pexels-photo-1659438.jpeg" alt="Week-end voyage 2" class="w-full h-64 object-cover carousel-image">
-                        </div>
-                        <div class="absolute top-4 left-4">
-                            <span class="bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Voyage</span>
-                        </div>
-                        <div class="absolute bottom-4 right-4 flex space-x-2">
-                            <button class="w-2 h-2 bg-white rounded-full opacity-50 carousel-dot active" data-slide="0"></button>
-                            <button class="w-2 h-2 bg-white rounded-full opacity-50 carousel-dot" data-slide="1"></button>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-3 text-gray-800">WEEK-END EN VOYAGE</h3>
-                        <p class="text-gray-600 mb-4 leading-relaxed">
-                            Voyage, apprentissage et découverte. Un projet axé sur l'exploration d'un nouvel environnement de vie à travers le voyage.
-                            Rassemble les jeunes pour un moment enrichissant d'apprentissage, de découverte, de réseautage et de partage de connaissances.
-                        </p>
-                        <div class="flex items-center text-purple-600 bg-purple-50 p-3 rounded-lg">
-                            <i class="fas fa-plane mr-3 text-lg"></i>
-                            <span class="font-medium">Voyage • Apprentissage • Découverte</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Cité Verte -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100">
-                    <div class="relative h-64 overflow-hidden">
-                        <div class="carousel" data-carousel="verte">
-                            <img src="https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg" alt="Cité Verte 1" class="w-full h-64 object-cover carousel-image active">
-                            <img src="https://images.pexels.com/photos/1072824/pexels-photo-1072824.jpeg" alt="Cité Verte 2" class="w-full h-64 object-cover carousel-image">
-                        </div>
-                        <div class="absolute top-4 left-4">
-                            <span class="bg-emerald-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Environnement</span>
-                        </div>
-                        <div class="absolute bottom-4 right-4 flex space-x-2">
-                            <button class="w-2 h-2 bg-white rounded-full opacity-50 carousel-dot active" data-slide="0"></button>
-                            <button class="w-2 h-2 bg-white rounded-full opacity-50 carousel-dot" data-slide="1"></button>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-3 text-gray-800">CITÉ VERTE</h3>
-                        <p class="text-gray-600 mb-4 leading-relaxed">
-                            Vise à créer une communauté engagée dans la protection de l'environnement, impliquant activement les citoyens dans la transformation
-                            de leur environnement. Sensibilisation, reboisement et nettoyage des lieux publics.
-                        </p>
-                        <div class="flex items-center text-emerald-600 bg-emerald-50 p-3 rounded-lg">
-                            <i class="fas fa-seedling mr-3 text-lg"></i>
-                            <span class="font-medium">Environnement • Reboisement • Sensibilisation</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Happy Heart - Projet phare en pleine largeur -->
-            <div class="mt-8">
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100">
-                    <div class="grid grid-cols-1 lg:grid-cols-2">
-                        <div class="relative h-64 lg:h-auto overflow-hidden">
-                            <div class="carousel" data-carousel="happy">
-                                <img src="https://images.pexels.com/photos/8923181/pexels-photo-8923181.jpeg" alt="Happy Heart 1" class="w-full h-full object-cover carousel-image active">
-                                <img src="https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg" alt="Happy Heart 2" class="w-full h-full object-cover carousel-image">
-                            </div>
-                            <div class="absolute top-4 left-4">
-                                <span class="bg-pink-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Solidarité</span>
-                            </div>
-                            <div class="absolute bottom-4 right-4 flex space-x-2">
-                                <button class="w-2 h-2 bg-white rounded-full opacity-50 carousel-dot active" data-slide="0"></button>
-                                <button class="w-2 h-2 bg-white rounded-full opacity-50 carousel-dot" data-slide="1"></button>
-                            </div>
-                        </div>
-                        <div class="p-8">
-                            <h3 class="text-3xl font-bold mb-4 text-gray-800">HAPPY HEART</h3>
-                            <p class="text-gray-600 mb-6 leading-relaxed">
-                                Dédier une journée entière de joie et de gaîté aux enfants orphelins et démunis. Chaque année, nous organisons des événements spéciaux
-                                dans des orphelinats avec animations ludiques, repas partagés, ateliers de cuisine, moments de danse et jeux interactifs.
-                                Les enfants reçoivent également des cadeaux personnalisés pour les encourager à croire en leurs rêves.
-                            </p>
-                            <div class="flex items-center text-pink-600 bg-pink-50 p-4 rounded-lg">
-                                <i class="fas fa-heart mr-3 text-xl"></i>
-                                <span class="font-medium">Solidarité • Joie • Orphelinats • Cadeaux</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Autres projets réalisés -->
-            <div class="mt-16">
-                <h3 class="text-3xl font-bold text-center mb-8 text-gray-800">Autres Projets Réalisés</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition-all duration-300 border border-gray-100">
-                        <div class="bg-gradient-to-br from-blue-100 to-blue-200 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-book text-blue-600 text-2xl"></i>
-                        </div>
-                        <h4 class="text-xl font-bold mb-3 text-gray-800">Practical Education</h4>
-                        <p class="text-gray-600">Formation pratique et éducation adaptée aux besoins locaux</p>
-                    </div>
-                    
-                    <div class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition-all duration-300 border border-gray-100">
-                        <div class="bg-gradient-to-br from-purple-100 to-purple-200 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-theater-masks text-purple-600 text-2xl"></i>
-                        </div>
-                        <h4 class="text-xl font-bold mb-3 text-gray-800">Escale Culturelle</h4>
-                        <p class="text-gray-600">Promotion et préservation du patrimoine culturel local</p>
-                    </div>
-                    
-                    <div class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition-all duration-300 border border-gray-100">
-                        <div class="bg-gradient-to-br from-pink-100 to-pink-200 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-female text-pink-600 text-2xl"></i>
-                        </div>
-                        <h4 class="text-xl font-bold mb-3 text-gray-800">AVEC ELLE</h4>
-                        <p class="text-gray-600">Autonomisation et accompagnement des femmes</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Challenges Section -->
-    <section class="py-16 bg-gradient-to-r from-slate-800 to-slate-900 text-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold mb-4">Nos Défis Majeurs</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-blue-400 to-green-400 mx-auto mb-4"></div>
-                <p class="text-xl text-slate-300 max-w-3xl mx-auto">
-                    Pour continuer notre mission et amplifier notre impact, nous faisons face à plusieurs défis que nous surmontons avec détermination.
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <div class="bg-slate-700/50 backdrop-blur-sm rounded-xl p-6 border border-slate-600 hover:bg-slate-700/70 transition-all duration-300">
-                    <div class="bg-gradient-to-br from-blue-500 to-blue-600 w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-chart-line text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3">Renforcement des Capacités</h3>
-                    <p class="text-slate-300 leading-relaxed">
-                        Nous travaillons continuellement à renforcer les compétences de notre équipe et à développer
-                        nos capacités organisationnelles pour mieux servir nos communautés.
-                    </p>
-                </div>
-                
-                <div class="bg-slate-700/50 backdrop-blur-sm rounded-xl p-6 border border-slate-600 hover:bg-slate-700/70 transition-all duration-300">
-                    <div class="bg-gradient-to-br from-green-500 to-green-600 w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-coins text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3">Mobilisation des Financements</h3>
-                    <p class="text-slate-300 leading-relaxed">
-                        La recherche de financements durables reste un défi constant pour assurer la pérennité
-                        et l'expansion de nos programmes d'impact social.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- News Section -->
-    <section id="news" class="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold mb-4 text-gray-800">Actualités</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-green-600 mx-auto mb-4"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto">
-                    Suivez nos dernières réalisations et découvrez l'impact de nos actions sur le terrain
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100">
-                    <img src="https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg" alt="Formation leadership" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="text-sm text-blue-600 mb-2 font-semibold">15 Décembre 2023</div>
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">Lancement du projet O'KPON</h3>
-                        <p class="text-gray-600 mb-4 leading-relaxed">
-                            Nouveau programme de formation en leadership pour les jeunes de Sèmè-Podji avec focus sur la prise de parole en public.
-                        </p>
-                        <a href="#" class="text-blue-600 hover:text-blue-700 font-semibold flex items-center">
-                            Lire la suite <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </article>
-                
-                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100">
-                    <img src="https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg" alt="Reboisement" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="text-sm text-green-600 mb-2 font-semibold">10 Décembre 2023</div>
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">Cité Verte : 500 arbres plantés</h3>
-                        <p class="text-gray-600 mb-4 leading-relaxed">
-                            Grande réussite de notre campagne de reboisement communautaire avec la participation de 100 bénévoles.
-                        </p>
-                        <a href="#" class="text-green-600 hover:text-green-700 font-semibold flex items-center">
-                            Lire la suite <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </article>
-                
-                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100">
-                    <img src="https://images.pexels.com/photos/8923181/pexels-photo-8923181.jpeg" alt="Happy Heart" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="text-sm text-pink-600 mb-2 font-semibold">25 Novembre 2023</div>
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">Happy Heart 2023 : Un succès</h3>
-                        <p class="text-gray-600 mb-4 leading-relaxed">
-                            Plus de 150 enfants orphelins ont bénéficié de notre événement annuel Happy Heart avec cadeaux et animations.
-                        </p>
-                        <a href="#" class="text-pink-600 hover:text-pink-700 font-semibold flex items-center">
-                            Lire la suite <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- Support Section -->
-    <section id="support" class="py-16 bg-gradient-to-br from-blue-600 via-black-900 to-green-600 text-white relative overflow-hidden">
-        <!-- Motifs décoratifs en arrière-plan -->
-        <div class="absolute inset-0 opacity-10">
-            <div class="absolute top-10 left-10 w-32 h-32 bg-white rounded-full blur-xl"></div>
-            <div class="absolute top-32 right-20 w-24 h-24 bg-white rounded-full blur-lg"></div>
-            <div class="absolute bottom-20 left-1/4 w-20 h-20 bg-white rounded-full blur-md"></div>
-            <div class="absolute bottom-32 right-10 w-40 h-40 bg-white rounded-full blur-2xl"></div>
-        </div>
-        
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6">Soutenez Notre Mission</h2>
-                <div class="w-24 h-1 bg-white mx-auto mb-6"></div>
-                <p class="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed opacity-90">
-                    Rejoignez-nous dans notre mission de développement durable et d'autonomisation des jeunes au Bénin.
-                    Ensemble, construisons un avenir meilleur pour nos communautés.
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <!-- Faire un don -->
-                <div class="group">
-                    <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-8 text-center hover:bg-white/30 transition-all duration-300 hover:scale-105 border border-white/30 h-full">
-                        <div class="bg-gradient-to-br from-yellow-400 to-orange-500 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                            <i class="fas fa-hand-holding-heart text-white text-3xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4">Faire un Don</h3>
-                        <p class="mb-6 text-lg opacity-90 leading-relaxed">
-                            Votre contribution nous aide à financer nos projets et à toucher plus de vies dans nos communautés.
-                        </p>
-                        <div class="mb-6">
-                            <div class="flex justify-center space-x-4 text-sm opacity-80">
-                                <span>💰 Financement projets</span>
-                                <span>🎯 Impact direct</span>
-                            </div>
-                        </div>
-                        <a href="#contact" class="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-full inline-block transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                            <i class="fas fa-heart mr-2"></i>
-                            Donner Maintenant
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Devenir bénévole -->
-                <div class="group">
-                    <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-8 text-center hover:bg-white/30 transition-all duration-300 hover:scale-105 border border-white/30 h-full">
-                        <div class="bg-gradient-to-br from-green-400 to-blue-500 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                            <i class="fas fa-users text-white text-3xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4">Devenir Bénévole</h3>
-                        <p class="mb-6 text-lg opacity-90 leading-relaxed">
-                            Rejoignez nos 45 membres actifs et participez directement à nos actions sur le terrain.
-                        </p>
-                        <div class="mb-6">
-                            <div class="flex justify-center space-x-4 text-sm opacity-80">
-                                <span>🤝 Action directe</span>
-                                <span>📈 Développement personnel</span>
-                            </div>
-                        </div>
-                        <a href="#contact" class="bg-white text-green-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-full inline-block transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                            <i class="fas fa-user-plus mr-2"></i>
-                            Nous Rejoindre
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Partenariat -->
-                <div class="group">
-                    <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-8 text-center hover:bg-white/30 transition-all duration-300 hover:scale-105 border border-white/30 h-full">
-                        <div class="bg-gradient-to-br from-purple-400 to-pink-500 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                            <i class="fas fa-handshake text-white text-3xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4">Partenariat</h3>
-                        <p class="mb-6 text-lg opacity-90 leading-relaxed">
-                            Collaborons ensemble pour un impact plus grand et durable dans nos communautés.
-                        </p>
-                        <div class="mb-6">
-                            <div class="flex justify-center space-x-4 text-sm opacity-80">
-                                <span>🚀 Impact amplifié</span>
-                                <span>🌍 Réseau étendu</span>
-                            </div>
-                        </div>
-                        <a href="#contact" class="bg-white text-purple-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-full inline-block transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                            <i class="fas fa-briefcase mr-2"></i>
-                            Devenir Partenaire
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Section statistiques d'impact -->
-            <div class="mt-16 bg-white/20 backdrop-blur-sm rounded-2xl p-8 border border-white/30">
-                <h3 class="text-2xl font-bold text-center mb-8">Votre Soutien en Action</h3>
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
-                    <div class="group">
-                        <div class="text-3xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">45</div>
-                        <div class="text-sm opacity-80">Membres Actifs</div>
-                    </div>
-                    <div class="group">
-                        <div class="text-3xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">7+</div>
-                        <div class="text-sm opacity-80">Projets Réalisés</div>
-                    </div>
-                    <div class="group">
-                        <div class="text-3xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">1000+</div>
-                        <div class="text-sm opacity-80">Vies Impactées</div>
-                    </div>
-                    <div class="group">
-                        <div class="text-3xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">6</div>
-                        <div class="text-sm opacity-80">Années d'Expérience</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Call to action final -->
-            <div class="mt-12 text-center">
-                <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-8 max-w-4xl mx-auto border border-white/30">
-                    <i class="fas fa-quote-left text-3xl mb-4 opacity-70"></i>
-                    <p class="text-xl italic mb-6 leading-relaxed">
-                        "Ensemble, nous pouvons transformer des vies et bâtir un avenir durable pour les générations futures."
-                    </p>
-                    <div class="flex justify-center space-x-4">
-                        <a href="#contact" class="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl">
-                            <i class="fas fa-envelope mr-2"></i>
-                            Contactez-nous
-                        </a>
-                        <a href="https://www.facebook.com/ongALDD" target="_blank" class="bg-blue-600 hover:bg-blue-700 font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl">
-                            <i class="fab fa-facebook mr-2"></i>
-                            Suivez-nous
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-
-
-
-
-
-
-
-
-
-        <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-4 text-gray-800">Contactez-nous</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-green-600 mx-auto mb-4"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto text-lg">
-                    Nous sommes là pour répondre à vos questions et discuter de vos idées de collaboration
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-                <!-- Contact Form -->
-                <div class="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
-                    <div class="flex items-center mb-6">
-                        <div class="bg-gradient-to-r from-blue-600 to-green-600 w-12 h-12 rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-paper-plane text-white text-xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-800">Envoyez-nous un message</h3>
-                    </div>
-                    
-                    <form action="https://formspree.io/f/your-form-id" method="POST" class="space-y-6" id="contactForm">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="form-group">
-                                <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">
-                                    <i class="fas fa-user mr-2 text-blue-600"></i>Nom complet *
-                                </label>
-                                <input type="text" id="name" name="name" required 
-                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 hover:border-blue-400"
-                                       placeholder="Votre nom complet">
-                            </div>
-                            <div class="form-group">
-                                <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">
-                                    <i class="fas fa-envelope mr-2 text-green-600"></i>Email *
-                                </label>
-                                <input type="email" id="email" name="email" required 
-                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:border-green-400"
-                                       placeholder="votre@email.com">
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="phone" class="block text-sm font-semibold text-gray-700 mb-2">
-                                <i class="fas fa-phone mr-2 text-purple-600"></i>Téléphone
-                            </label>
-                            <input type="tel" id="phone" name="phone" 
-                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 hover:border-purple-400"
-                                   placeholder="+229 XX XX XX XX">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="subject" class="block text-sm font-semibold text-gray-700 mb-2">
-                                <i class="fas fa-tag mr-2 text-orange-600"></i>Sujet *
-                            </label>
-                            <select id="subject" name="subject" required 
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-300 hover:border-orange-400">
-                                <option value="">Sélectionnez un sujet</option>
-                                <option value="don">💰 Faire un don</option>
-                                <option value="benevolat">🤝 Devenir bénévole</option>
-                                <option value="partenariat">🤝 Partenariat</option>
-                                <option value="projet">🎯 Proposer un projet</option>
-                                <option value="information">ℹ️ Demande d'information</option>
-                                <option value="autre">📝 Autre</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">
-                                <i class="fas fa-comment mr-2 text-pink-600"></i>Message *
-                            </label>
-                            <textarea id="message" name="message" rows="5" required 
-                                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-300 hover:border-pink-400 resize-none"
-                                      placeholder="Décrivez votre message, vos questions ou vos idées..."></textarea>
-                        </div>
-                        
-                        <div class="flex items-center mb-4">
-                            <input type="checkbox" id="consent" name="consent" required class="mr-3 w-4 h-4 text-blue-600">
-                            <label for="consent" class="text-sm text-gray-600">
-                                J'accepte que mes données soient utilisées pour répondre à ma demande *
-                            </label>
-                        </div>
-                        
-                        <button type="submit" 
-                                class="w-full bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white font-bold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                            <i class="fas fa-paper-plane mr-2"></i>
-                            Envoyer le message
-                        </button>
-                    </form>
-                </div>
-                
-                <!-- Contact Info -->
-                <div class="space-y-8">
-                    <!-- Informations principales -->
-                    <div class="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
-                        <div class="flex items-center mb-6">
-                            <div class="bg-gradient-to-r from-purple-600 to-pink-600 w-12 h-12 rounded-full flex items-center justify-center mr-4">
-                                <i class="fas fa-info-circle text-white text-xl"></i>
-                            </div>
-                            <h3 class="text-2xl font-bold text-gray-800">Informations de contact</h3>
-                        </div>
-                        
-                        <div class="space-y-6">
-                            <div class="flex items-start group hover:bg-gray-50 p-3 rounded-lg transition-colors duration-300">
-                                <div class="bg-red-100 w-12 h-12 rounded-full flex items-center justify-center mr-4 group-hover:bg-red-200 transition-colors duration-300">
-                                    <i class="fas fa-map-marker-alt text-red-600 text-xl"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-900 mb-1">Adresse</h4>
-                                    <p class="text-gray-600 leading-relaxed">
-                                        Bénin, Département de l'Ouémé<br>
-                                        Commune de Sèmè-Podji<br>
-                                        Arrondissement d'Ekpè<br>
-                                        Quartier Djeffa-Gbago, M/ KPAKO
-                                    </p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-center group hover:bg-gray-50 p-3 rounded-lg transition-colors duration-300">
-                                <div class="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mr-4 group-hover:bg-green-200 transition-colors duration-300">
-                                    <i class="fas fa-phone text-green-600 text-xl"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-900 mb-1">Téléphone</h4>
-                                    <a href="tel:+22901629258668" class="text-green-600 hover:text-green-700 font-medium">
-                                        +229 01 62 92 58 68
-                                    </a>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-center group hover:bg-gray-50 p-3 rounded-lg transition-colors duration-300">
-                                <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mr-4 group-hover:bg-blue-200 transition-colors duration-300">
-                                    <i class="fas fa-envelope text-blue-600 text-xl"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-900 mb-1">Email</h4>
-                                    <a href="mailto:alddong1@gmail.com" class="text-blue-600 hover:text-blue-700 font-medium">
-                                        alddong1@gmail.com
-                                    </a>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-center group hover:bg-gray-50 p-3 rounded-lg transition-colors duration-300">
-                                <div class="bg-indigo-100 w-12 h-12 rounded-full flex items-center justify-center mr-4 group-hover:bg-indigo-200 transition-colors duration-300">
-                                    <i class="fab fa-facebook text-indigo-600 text-xl"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-900 mb-1">Facebook</h4>
-                                    <a href="https://www.facebook.com/ongALDD?mibextid=kFxxJD" target="_blank" 
-                                       class="text-indigo-600 hover:text-indigo-700 font-medium">
-                                        @ongALDD
-                                    </a>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start group hover:bg-gray-50 p-3 rounded-lg transition-colors duration-300">
-                                <div class="bg-orange-100 w-12 h-12 rounded-full flex items-center justify-center mr-4 group-hover:bg-orange-200 transition-colors duration-300">
-                                    <i class="fas fa-clock text-orange-600 text-xl"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-900 mb-1">Horaires</h4>
-                                    <p class="text-gray-600">
-                                        <span class="block">📅 Lundi - Vendredi: 8h00 - 17h00</span>
-                                        <span class="block">📅 Samedi: 9h00 - 13h00</span>
-                                        <span class="block text-red-600">📅 Dimanche: Fermé</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Réseaux sociaux -->
-                    <div class="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
-                        <h3 class="text-xl font-bold mb-6 text-gray-800 flex items-center">
-                            <i class="fas fa-share-alt mr-3 text-purple-600"></i>
-                            Suivez-nous
-                        </h3>
-                        <div class="grid grid-cols-2 gap-4">
-                            <a href="https://www.facebook.com/ongALDD?mibextid=kFxxJD" target="_blank" 
-                               class="flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-lg transition-all duration-300 transform hover:scale-105">
-                                <i class="fab fa-facebook-f text-xl mr-2"></i>
-                                Facebook
-                            </a>
-                            <a href="#" class="flex items-center justify-center bg-blue-400 hover:bg-blue-500 text-white p-4 rounded-lg transition-all duration-300 transform hover:scale-105">
-                                <i class="fab fa-twitter text-xl mr-2"></i>
-                                Twitter
-                            </a>
-                            <a href="#" class="flex items-center justify-center bg-pink-600 hover:bg-pink-700 text-white p-4 rounded-lg transition-all duration-300 transform hover:scale-105">
-                                <i class="fab fa-instagram text-xl mr-2"></i>
-                                Instagram
-                            </a>
-                            <a href="#" class="flex items-center justify-center bg-blue-800 hover:bg-blue-900 text-white p-4 rounded-lg transition-all duration-300 transform hover:scale-105">
-                                <i class="fab fa-linkedin-in text-xl mr-2"></i>
-                                LinkedIn
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- Équipe dirigeante -->
-                    <div class="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
-                        <h3 class="text-xl font-bold mb-6 text-gray-800 flex items-center">
-                            <i class="fas fa-users mr-3 text-green-600"></i>
-                            Équipe dirigeante
-                        </h3>
-                        <div class="space-y-4">
-                            <div class="border-l-4 border-blue-500 pl-4">
-                                <h4 class="font-semibold text-gray-900">DANSI Francine</h4>
-                                <p class="text-sm text-gray-600">Présidente</p>
-                                <a href="mailto:francinedansi49@gmail.com" class="text-blue-600 text-sm">francinedansi49@gmail.com</a>
-                            </div>
-                            <div class="border-l-4 border-green-500 pl-4">
-                                <h4 class="font-semibold text-gray-900">EZIN Cyrilla</h4>
-                                <p class="text-sm text-gray-600">Secrétaire Générale</p>
-                                <a href="mailto:Victoriaezin11@gmail.com" class="text-green-600 text-sm">Victoriaezin11@gmail.com</a>
-                            </div>
-                            <div class="border-l-4 border-purple-500 pl-4">
-                                <h4 class="font-semibold text-gray-900">ZEGUE Lauriano</h4>
-                                <p class="text-sm text-gray-600">Directeur Exécutif</p>
-                                <a href="mailto:zeguelauriano@gmail.com" class="text-purple-600 text-sm">zeguelauriano@gmail.com</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Footer -->
-    <footer class="bg-blue-900 text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <!-- Logo and Description -->
-                <div class="md:col-span-2">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-lime-500 text-white w-12 h-12 rounded-full flex items-center justify-center mr-3">
-                            <i class="fas fa-leaf text-xl"></i>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold">ALDD</h3>
-                            <p class="text-sm text-blue-200">Artisans de la Liberté et du Développement Durable</p>
+                            <h1
+                                class="text-xl font-bold text-blue-900">ALDD</h1>
+                            <p class="text-xs text-gray-600">Artisans de la
+                                Liberté et du Développement Durable</p>
                         </div>
                     </div>
-                    <p class="text-blue-200 mb-4">
-                        Depuis novembre 2018, nous œuvrons pour le développement socio-économique des communautés 
-                        en formant les leaders de demain et en promouvant un développement durable au Bénin.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/ongALDD?mibextid=kFxxJD" target="_blank" class="text-blue-200 hover:text-lime-300 transition">
-                            <i class="fab fa-facebook-f text-xl"></i>
-                        </a>
-                        <a href="#" class="text-blue-200 hover:text-lime-300 transition">
-                            <i class="fab fa-twitter text-xl"></i>
-                        </a>
-                        <a href="#" class="text-blue-200 hover:text-lime-300 transition">
-                            <i class="fab fa-instagram text-xl"></i>
-                        </a>
-                        <a href="#" class="text-blue-200 hover:text-lime-300 transition">
-                            <i class="fab fa-linkedin-in text-xl"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Quick Links -->
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Liens rapides</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#about" class="text-blue-200 hover:text-lime-300 transition">À propos</a></li>
-                        <li><a href="#projects" class="text-blue-200 hover:text-lime-300 transition">Nos projets</a></li>
-                        <li><a href="#team" class="text-blue-200 hover:text-lime-300 transition">Notre équipe</a></li>
-                        <li><a href="#news" class="text-blue-200 hover:text-lime-300 transition">Actualités</a></li>
-                        <li><a href="#support" class="text-blue-200 hover:text-lime-300 transition">Nous soutenir</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Contact Info -->
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
-                    <div class="space-y-2 text-blue-200">
-                        <p><i class="fas fa-envelope mr-2"></i>alddong1@gmail.com</p>
-                        <p><i class="fas fa-phone mr-2"></i>+229 01 62 92 58 68</p>
-                        <p><i class="fas fa-map-marker-alt mr-2"></i>Sèmè-Podji, Ouémé, Bénin</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="border-t border-blue-800 mt-8 pt-8 text-center">
-                <p class="text-blue-200">
-                    &copy; 2023 ALDD - Artisans de la Liberté et du Développement Durable. Tous droits réservés.
-                </p>
-                <p class="text-blue-300 text-sm mt-2">
-                    Créée en novembre 2018 • Enregistrée et publiée au journal officiel
-                </p>
-            </div>
-        </div>
-    </footer>
 
-</body>
-<script src="js/main.js"></script>
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex space-x-8">
+                        <a href="#accueil"
+                            class="text-gray-700 hover:text-lime-500 transition">Accueil</a>
+                        <a href="#about"
+                            class="text-gray-700 hover:text-lime-500 transition">À
+                            propos</a>
+                        <a href="#projects"
+                            class="text-gray-700 hover:text-lime-500 transition">Projets</a>
+                        <a href="#team"
+                            class="text-gray-700 hover:text-lime-500 transition">Équipe</a>
+                        <a href="#news"
+                            class="text-gray-700 hover:text-lime-500 transition">Actualités</a>
+                        <a href="#support"
+                            class="text-gray-700 hover:text-lime-500 transition">Nous
+                            soutenir</a>
+                        <a href="#contact"
+                            class="text-gray-700 hover:text-lime-500 transition">Contact</a>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <div class="md:hidden">
+                        <button @click="open = !open"
+                            class="text-gray-700 hover:text-lime-500">
+                            <i class="fas fa-bars text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu -->
+                <div x-show="open" x-transition class="md:hidden pb-4">
+                    <a href="#accueil"
+                        class="block py-2 text-gray-700 hover:text-lime-500 transition">Accueil</a>
+                    <a href="#about"
+                        class="block py-2 text-gray-700 hover:text-lime-500 transition">À
+                        propos</a>
+                    <a href="#projects"
+                        class="block py-2 text-gray-700 hover:text-lime-500 transition">Projets</a>
+                    <a href="#team"
+                        class="block py-2 text-gray-700 hover:text-lime-500 transition">Équipe</a>
+                    <a href="#news"
+                        class="block py-2 text-gray-700 hover:text-lime-500 transition">Actualités</a>
+                    <a href="#support"
+                        class="block py-2 text-gray-700 hover:text-lime-500 transition">Nous
+                        soutenir</a>
+                    <a href="#contact"
+                        class="block py-2 text-gray-700 hover:text-lime-500 transition">Contact</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="accueil"
+            class="relative text-white min-h-screen flex flex-col justify-end overflow-hidden">
+            <!-- Background Image Slideshow -->
+            <div class="absolute inset-0 z-0">
+                <div class="slideshow-container w-full h-full">
+                    <div class="slide">
+                        <img src="img/banner2.jpg"
+                            alt="Environnement et nature"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="slide active">
+                        <img src="img/banner.jpg"
+                            alt="Enfants souriants"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="slide">
+                        <img src="img/banner1.jpg"
+                            alt="Activités communautaires"
+                            class="w-full h-full object-cover">
+                    </div>
+
+                </div>
+                <!-- Gradient overlay for text readability -->
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-blue-900/80 via-blue-800/40 to-transparent"></div>
+            </div>
+
+            <!-- Content positioned at bottom -->
+            <div class="container mx-auto px-4 relative z-30 pb-16 md:pb-20">
+                <div class="max-w-5xl mx-auto">
+                    <div class="text-center md:text-left">
+                        <h1
+                            class="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight p-4 rounded-lg bg-blue-900/20 backdrop-blur-sm border border-blue-400/30">
+                            Artisans de la Liberté et du
+                            <span class="text-blue-300">Développement
+                                Durable</span>
+                        </h1>
+                        <p
+                            class="text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 text-blue-100 max-w-3xl mx-auto md:mx-0 leading-relaxed p-4 rounded-lg bg-blue-900/20 backdrop-blur-sm border border-blue-400/20">
+                            Un monde où les enfants et les jeunes sont éduqués,
+                            initiés au leadership et capables d'assurer une
+                            meilleure relève.
+                        </p>
+
+                        <!-- Stats rapides - cachées sur mobile pour voir l'image -->
+                        <div
+                            class="hidden sm:grid grid-cols-3 gap-4 lg:gap-6 mb-6 lg:mb-8 max-w-xl">
+                            <div
+                                class="bg-blue-900/30 backdrop-blur-sm rounded-lg p-3 lg:p-4 text-center border border-blue-400/30">
+                                <div
+                                    class="text-xl lg:text-2xl font-bold text-blue-300">45</div>
+                                <div
+                                    class="text-xs lg:text-sm text-blue-200">Membres
+                                    actifs</div>
+                            </div>
+                            <div
+                                class="bg-blue-900/30 backdrop-blur-sm rounded-lg p-3 lg:p-4 text-center border border-blue-400/30">
+                                <div
+                                    class="text-xl lg:text-2xl font-bold text-blue-300">7+</div>
+                                <div
+                                    class="text-xs lg:text-sm text-blue-200">Projets
+                                    réalisés</div>
+                            </div>
+                            <div
+                                class="bg-blue-900/30 backdrop-blur-sm rounded-lg p-3 lg:p-4 text-center border border-blue-400/30">
+                                <div
+                                    class="text-xl lg:text-2xl font-bold text-blue-300">2018</div>
+                                <div
+                                    class="text-xs lg:text-sm text-blue-200">Année
+                                    de création</div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="flex flex-col sm:flex-row gap-3 lg:gap-4 justify-center md:justify-start">
+                            <a href="#projects"
+                                class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 lg:py-4 px-6 lg:px-8 rounded-full text-center transition duration-300 shadow-lg border border-blue-400/50">
+                                <i class="fas fa-rocket mr-2"></i>
+                                Découvrir nos projets
+                            </a>
+                            <a href="#support"
+                                class="border-2 border-blue-300 hover:bg-blue-300 hover:text-blue-900 text-blue-100 font-semibold py-3 lg:py-4 px-6 lg:px-8 rounded-full text-center transition duration-300 backdrop-blur-sm bg-blue-900/20">
+                                <i class="fas fa-heart mr-2"></i>
+                                Nous soutenir
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll indicator -->
+            <div
+                class="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-30">
+                <a href="#about"
+                    class="text-blue-200 hover:text-blue-300 transition duration-300">
+                    <i class="fas fa-chevron-down text-xl animate-pulse"></i>
+                </a>
+            </div>
+
+            <!-- Slideshow indicators -->
+            <div class="absolute bottom-6 right-6 z-30 flex space-x-2">
+                <div
+                    class="indicator active w-3 h-3 bg-blue-400 rounded-full opacity-90 cursor-pointer border border-blue-300"
+                    data-slide="0"></div>
+                <div
+                    class="indicator w-3 h-3 bg-blue-600 rounded-full opacity-50 cursor-pointer border border-blue-400"
+                    data-slide="1"></div>
+                <div
+                    class="indicator w-3 h-3 bg-blue-600 rounded-full opacity-50 cursor-pointer border border-blue-400"
+                    data-slide="2"></div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about"
+            class="py-16 bg-gradient-to-br from-blue-50 via-white to-green-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-4 text-blue-900">À propos
+                        d'ALDD</h2>
+                    <div
+                        class="w-24 h-1 bg-gradient-to-r from-blue-500 to-green-500 mx-auto mb-4"></div>
+                    <p
+                        class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+                        Créée en novembre 2018 et officiellement enregistrée,
+                        ALDD œuvre pour le développement socio-économique des
+                        communautés au Bénin.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div class="text-center lg:text-left">
+                        <div
+                            class="bg-gradient-to-br from-blue-100 to-green-100 p-8 rounded-xl shadow-lg border border-blue-200">
+                            <img src="img/logo.png" alt="Logo ALDD"
+                                class="w-full max-w-md mx-auto rounded-lg shadow-md">
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold mb-6 text-blue-900">Notre
+                            Mission</h3>
+                        <p class="text-gray-700 mb-6 text-lg leading-relaxed">
+                            Contribuer au leadership des enfants et jeunes afin
+                            de produire des leaders de qualité pour un
+                            développement durable.
+                        </p>
+                        <div class="space-y-4">
+                            <div
+                                class="flex items-start bg-white p-4 rounded-lg shadow-md border-l-4 border-blue-500 hover:shadow-lg transition-shadow">
+                                <i
+                                    class="fas fa-check-circle text-green-600 mt-1 mr-3 text-lg"></i>
+                                <p class="text-gray-800 font-medium">45 membres
+                                    actifs engagés pour le changement</p>
+                            </div>
+                            <div
+                                class="flex items-start bg-white p-4 rounded-lg shadow-md border-l-4 border-green-500 hover:shadow-lg transition-shadow">
+                                <i
+                                    class="fas fa-check-circle text-blue-600 mt-1 mr-3 text-lg"></i>
+                                <p class="text-gray-800 font-medium">Créée en
+                                    novembre 2018, enregistrée
+                                    officiellement</p>
+                            </div>
+                            <div
+                                class="flex items-start bg-white p-4 rounded-lg shadow-md border-l-4 border-purple-500 hover:shadow-lg transition-shadow">
+                                <i
+                                    class="fas fa-check-circle text-purple-600 mt-1 mr-3 text-lg"></i>
+                                <p class="text-gray-800 font-medium">Basée à
+                                    Sèmè-Podji, Département de l'Ouémé</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Objectifs spécifiques -->
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Éducation & Leadership - Bleu -->
+                    <div
+                        class="bg-white rounded-xl shadow-lg p-6 border border-blue-200 hover:shadow-xl hover:scale-105 transition-all duration-300">
+                        <div
+                            class="bg-gradient-to-br from-blue-100 to-blue-200 w-16 h-16 rounded-full flex items-center justify-center mb-4 border-2 border-blue-300">
+                            <i
+                                class="fas fa-graduation-cap text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3
+                            class="text-xl font-bold mb-3 text-blue-900">Éducation
+                            & Leadership</h3>
+                        <p class="text-gray-700">Œuvrer à l'éducation et au
+                            leadership des enfants et des jeunes pour former les
+                            leaders de demain.</p>
+                    </div>
+
+                    <!-- Droits des Femmes - Rose -->
+                    <div
+                        class="bg-white rounded-xl shadow-lg p-6 border border-pink-200 hover:shadow-xl hover:scale-105 transition-all duration-300">
+                        <div
+                            class="bg-gradient-to-br from-pink-100 to-pink-200 w-16 h-16 rounded-full flex items-center justify-center mb-4 border-2 border-pink-300">
+                            <i class="fas fa-venus text-pink-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-pink-900">Droits
+                            des Femmes</h3>
+                        <p class="text-gray-700">Promouvoir les droits de
+                            l'homme et ceux des femmes en particulier, ainsi que
+                            l'égalité du genre.</p>
+                    </div>
+
+                    <!-- Environnement - Vert -->
+                    <div
+                        class="bg-white rounded-xl shadow-lg p-6 border border-green-200 hover:shadow-xl hover:scale-105 transition-all duration-300">
+                        <div
+                            class="bg-gradient-to-br from-green-100 to-green-200 w-16 h-16 rounded-full flex items-center justify-center mb-4 border-2 border-green-300">
+                            <i class="fas fa-leaf text-green-600 text-2xl"></i>
+                        </div>
+                        <h3
+                            class="text-xl font-bold mb-3 text-green-900">Environnement</h3>
+                        <p class="text-gray-700">Œuvrer pour la protection de
+                            l'environnement et promouvoir des pratiques
+                            durables.</p>
+                    </div>
+
+                    <!-- Numérique - Violet -->
+                    <div
+                        class="bg-white rounded-xl shadow-lg p-6 border border-purple-200 hover:shadow-xl hover:scale-105 transition-all duration-300">
+                        <div
+                            class="bg-gradient-to-br from-purple-100 to-purple-200 w-16 h-16 rounded-full flex items-center justify-center mb-4 border-2 border-purple-300">
+                            <i
+                                class="fas fa-laptop text-purple-600 text-2xl"></i>
+                        </div>
+                        <h3
+                            class="text-xl font-bold mb-3 text-purple-900">Numérique</h3>
+                        <p class="text-gray-700">Promouvoir l'égalité du genre à
+                            l'ère du numérique et l'inclusion technologique.</p>
+                    </div>
+
+                    <!-- Paix & Cohésion - Orange -->
+                    <div
+                        class="bg-white rounded-xl shadow-lg p-6 border border-orange-200 hover:shadow-xl hover:scale-105 transition-all duration-300">
+                        <div
+                            class="bg-gradient-to-br from-orange-100 to-orange-200 w-16 h-16 rounded-full flex items-center justify-center mb-4 border-2 border-orange-300">
+                            <i
+                                class="fas fa-handshake text-orange-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-orange-900">Paix
+                            & Cohésion</h3>
+                        <p class="text-gray-700">Œuvrer pour la promotion de la
+                            paix et la cohésion sociale dans les
+                            communautés.</p>
+                    </div>
+
+                    <!-- Culture & Patrimoine - Rouge -->
+                    <div
+                        class="bg-white rounded-xl shadow-lg p-6 border border-red-200 hover:shadow-xl hover:scale-105 transition-all duration-300">
+                        <div
+                            class="bg-gradient-to-br from-red-100 to-red-200 w-16 h-16 rounded-full flex items-center justify-center mb-4 border-2 border-red-300">
+                            <i
+                                class="fas fa-monument text-red-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-red-900">Culture
+                            & Patrimoine</h3>
+                        <p class="text-gray-700">Sauvegarder le patrimoine
+                            culturel et touristique pour les générations
+                            futures.</p>
+                    </div>
+                </div>
+
+                <!-- Section statistiques colorée -->
+                <div
+                    class="mt-16 bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 rounded-2xl p-8 text-white">
+                    <div
+                        class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+                        <div
+                            class="bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                            <div class="text-3xl font-bold mb-2">45</div>
+                            <div class="text-sm opacity-90">Membres Actifs</div>
+                        </div>
+                        <div
+                            class="bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                            <div class="text-3xl font-bold mb-2">7+</div>
+                            <div class="text-sm opacity-90">Projets
+                                Réalisés</div>
+                        </div>
+                        <div
+                            class="bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                            <div class="text-3xl font-bold mb-2">6</div>
+                            <div class="text-sm opacity-90">Domaines
+                                d'Action</div>
+                        </div>
+                        <div
+                            class="bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                            <div class="text-3xl font-bold mb-2">2018</div>
+                            <div class="text-sm opacity-90">Année de
+                                Création</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team"
+            class="py-16 bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-4 text-blue-900">Notre
+                        Équipe Dirigeante</h2>
+                    <div
+                        class="w-24 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-green-500 mx-auto mb-4"></div>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+                        Une équipe passionnée et engagée pour le développement
+                        durable et l'autonomisation des jeunes
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <!-- Présidente -->
+                    <div
+                        class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl hover:scale-105 transition-all duration-300 border border-purple-100">
+                        <div class="relative mb-6">
+                            <div
+                                class="bg-gradient-to-br from-purple-500 to-pink-500 w-24 h-24 rounded-full flex items-center justify-center mx-auto shadow-lg">
+                                <i class="fas fa-crown text-white text-3xl"></i>
+                            </div>
+                            <div
+                                class="absolute -bottom-2 -right-2 bg-purple-100 w-8 h-8 rounded-full flex items-center justify-center border-2 border-white">
+                                <i
+                                    class="fas fa-star text-purple-600 text-sm"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-purple-900">DANSI
+                            Francine</h3>
+                        <div
+                            class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4 inline-block">
+                            Présidente
+                        </div>
+                        <div class="text-sm text-gray-600 space-y-3">
+                            <div
+                                class="flex items-center justify-center bg-gray-50 p-3 rounded-lg">
+                                <i
+                                    class="fas fa-envelope text-purple-500 mr-2"></i>
+                                <span
+                                    class="text-xs">francinedansi49@gmail.com</span>
+                            </div>
+                            <div
+                                class="flex items-center justify-center bg-gray-50 p-3 rounded-lg">
+                                <i
+                                    class="fas fa-phone text-purple-500 mr-2"></i>
+                                <span>+229 01 94 50 77 08</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Secrétaire Générale -->
+                    <div
+                        class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl hover:scale-105 transition-all duration-300 border border-green-100">
+                        <div class="relative mb-6">
+                            <div
+                                class="bg-gradient-to-br from-green-500 to-blue-500 w-24 h-24 rounded-full flex items-center justify-center mx-auto shadow-lg">
+                                <i
+                                    class="fas fa-file-alt text-white text-3xl"></i>
+                            </div>
+                            <div
+                                class="absolute -bottom-2 -right-2 bg-green-100 w-8 h-8 rounded-full flex items-center justify-center border-2 border-white">
+                                <i
+                                    class="fas fa-pen text-green-600 text-sm"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-green-900">EZIN
+                            Cyrilla</h3>
+                        <div
+                            class="bg-gradient-to-r from-green-500 to-blue-500 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4 inline-block">
+                            Secrétaire Générale
+                        </div>
+                        <div class="text-sm text-gray-600 space-y-3">
+                            <div
+                                class="flex items-center justify-center bg-gray-50 p-3 rounded-lg">
+                                <i
+                                    class="fas fa-envelope text-green-500 mr-2"></i>
+                                <span
+                                    class="text-xs">Victoriaezin11@gmail.com</span>
+                            </div>
+                            <div
+                                class="flex items-center justify-center bg-gray-50 p-3 rounded-lg">
+                                <i class="fas fa-phone text-green-500 mr-2"></i>
+                                <span>+229 01 52 37 13 92</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Directeur Exécutif -->
+                    <div
+                        class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl hover:scale-105 transition-all duration-300 border border-orange-100">
+                        <div class="relative mb-6">
+                            <div
+                                class="bg-gradient-to-br from-orange-500 to-red-500 w-24 h-24 rounded-full flex items-center justify-center mx-auto shadow-lg">
+                                <i
+                                    class="fas fa-briefcase text-white text-3xl"></i>
+                            </div>
+                            <div
+                                class="absolute -bottom-2 -right-2 bg-orange-100 w-8 h-8 rounded-full flex items-center justify-center border-2 border-white">
+                                <i
+                                    class="fas fa-cog text-orange-600 text-sm"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-orange-900">ZEGUE
+                            Lauriano</h3>
+                        <div
+                            class="bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4 inline-block">
+                            Directeur Exécutif
+                        </div>
+                        <div class="text-sm text-gray-600 space-y-3">
+                            <div
+                                class="flex items-center justify-center bg-gray-50 p-3 rounded-lg">
+                                <i
+                                    class="fas fa-envelope text-orange-500 mr-2"></i>
+                                <span
+                                    class="text-xs">zeguelauriano@gmail.com</span>
+                            </div>
+                            <div
+                                class="flex items-center justify-center bg-gray-50 p-3 rounded-lg">
+                                <i
+                                    class="fas fa-phone text-orange-500 mr-2"></i>
+                                <span>+229 01 66 06 01 57</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section contact général -->
+                <div
+                    class="mt-16 bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 rounded-2xl p-8 text-white text-center">
+                    <h3 class="text-2xl font-bold mb-4">Contactez Notre
+                        Organisation</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div
+                            class="bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                            <i class="fas fa-envelope text-2xl mb-2"></i>
+                            <p class="text-sm font-semibold">Email Principal</p>
+                            <p class="text-xs opacity-90">alddong1@gmail.com</p>
+                        </div>
+                        <div
+                            class="bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                            <i class="fas fa-phone text-2xl mb-2"></i>
+                            <p class="text-sm font-semibold">Téléphone</p>
+                            <p class="text-xs opacity-90">+229 01 62 92 58
+                                68</p>
+                        </div>
+                        <div
+                            class="bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                            <i class="fab fa-facebook text-2xl mb-2"></i>
+                            <p class="text-sm font-semibold">Facebook</p>
+                            <p class="text-xs opacity-90">@ongALDD</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact Numbers -->
+        <section
+            class="py-16 bg-gradient-to-r from-blue-600 via-white-0 to-green-600 text-white relative overflow-hidden">
+            <!-- Motifs décoratifs en arrière-plan -->
+            <div class="absolute inset-0 opacity-10">
+                <div
+                    class="absolute top-10 left-10 w-20 h-20 bg-white rounded-full"></div>
+                <div
+                    class="absolute top-32 right-20 w-16 h-16 bg-white rounded-full"></div>
+                <div
+                    class="absolute bottom-20 left-1/4 w-12 h-12 bg-white rounded-full"></div>
+                <div
+                    class="absolute bottom-32 right-10 w-24 h-24 bg-white rounded-full"></div>
+            </div>
+
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-4">Notre Impact en
+                        Chiffres</h2>
+                    <div class="w-24 h-1 bg-white mx-auto mb-4"></div>
+                    <p class="text-xl opacity-90 max-w-2xl mx-auto">
+                        Des résultats concrets qui témoignent de notre
+                        engagement pour le développement durable
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                    <!-- Membres actifs -->
+                    <div
+                        class="bg-white/20 backdrop-blur-sm rounded-xl p-6 hover:bg-white/30 transition-all duration-300 hover:scale-105 border border-white/30">
+                        <div
+                            class="bg-blue-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                            <i class="fas fa-users text-white text-2xl"></i>
+                        </div>
+                        <div class="text-4xl font-bold mb-2">
+                            <span class="counter" data-target="45">0</span>
+                        </div>
+                        <p class="text-lg font-medium opacity-90">Membres
+                            Actifs</p>
+                        <div class="w-12 h-1 bg-blue-300 mx-auto mt-2"></div>
+                    </div>
+
+                    <!-- Projets réalisés -->
+                    <div
+                        class="bg-white/20 backdrop-blur-sm rounded-xl p-6 hover:bg-white/30 transition-all duration-300 hover:scale-105 border border-white/30">
+                        <div
+                            class="bg-green-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                            <i
+                                class="fas fa-project-diagram text-white text-2xl"></i>
+                        </div>
+                        <div class="text-4xl font-bold mb-2">
+                            <span class="counter" data-target="7">0</span>+
+                        </div>
+                        <p class="text-lg font-medium opacity-90">Projets
+                            Réalisés</p>
+                        <div class="w-12 h-1 bg-green-300 mx-auto mt-2"></div>
+                    </div>
+
+                    <!-- Années d'expérience -->
+                    <div
+                        class="bg-white/20 backdrop-blur-sm rounded-xl p-6 hover:bg-white/30 transition-all duration-300 hover:scale-105 border border-white/30">
+                        <div
+                            class="bg-purple-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                            <i class="fas fa-calendar text-white text-2xl"></i>
+                        </div>
+                        <div class="text-4xl font-bold mb-2">
+                            <span class="counter" data-target="6">0</span>
+                        </div>
+                        <p class="text-lg font-medium opacity-90">Années
+                            d'Expérience</p>
+                        <div class="w-12 h-1 bg-purple-300 mx-auto mt-2"></div>
+                    </div>
+
+                    <!-- Vies impactées -->
+                    <div
+                        class="bg-white/20 backdrop-blur-sm rounded-xl p-6 hover:bg-white/30 transition-all duration-300 hover:scale-105 border border-white/30">
+                        <div
+                            class="bg-pink-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                            <i class="fas fa-heart text-white text-2xl"></i>
+                        </div>
+                        <div class="text-4xl font-bold mb-2">
+                            <span class="counter" data-target="1000">0</span>+
+                        </div>
+                        <p class="text-lg font-medium opacity-90">Vies
+                            Impactées</p>
+                        <div class="w-12 h-1 bg-pink-300 mx-auto mt-2"></div>
+                    </div>
+                </div>
+
+                <!-- Citation inspirante -->
+                <div class="mt-16 text-center">
+                    <div
+                        class="bg-white/20 backdrop-blur-sm rounded-2xl p-8 max-w-4xl mx-auto border border-white/30">
+                        <i
+                            class="fas fa-quote-left text-3xl mb-4 opacity-70"></i>
+                        <p class="text-xl italic mb-4 leading-relaxed">
+                            "Chaque action compte, chaque projet transforme des vies, chaque membre contribue à bâtir un avenir meilleur pour notre communauté."
+                        </p>
+                        <div class="flex items-center justify-center space-x-4">
+                            <div class="w-2 h-2 bg-blue-300 rounded-full"></div>
+                            <div
+                                class="w-2 h-2 bg-green-300 rounded-full"></div>
+                            <div
+                                class="w-2 h-2 bg-purple-300 rounded-full"></div>
+                            <div class="w-2 h-2 bg-pink-300 rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects"
+            class="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-4 text-gray-800">Nos
+                        Projets</h2>
+                    <div
+                        class="w-24 h-1 bg-gradient-to-r from-blue-600 to-green-600 mx-auto mb-4"></div>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+                        Découvrez nos initiatives concrètes pour le
+                        développement durable et l'autonomisation des
+                        communautés
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- DIS-MOI TOUT -->
+                    <div
+                        class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100">
+                        <div class="relative h-64 overflow-hidden">
+                            <div class="carousel" data-carousel="dismoi">
+                                <img
+                                    src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg"
+                                    alt="Dis-moi tout 1"
+                                    class="w-full h-64 object-cover carousel-image active">
+                                <img
+                                    src="https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg"
+                                    alt="Dis-moi tout 2"
+                                    class="w-full h-64 object-cover carousel-image">
+                            </div>
+                            <div class="absolute top-4 left-4">
+                                <span
+                                    class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Discussion</span>
+                            </div>
+                            <div
+                                class="absolute bottom-4 right-4 flex space-x-2">
+                                <button
+                                    class="w-2 h-2 bg-white rounded-full opacity-50 carousel-dot active"
+                                    data-slide="0"></button>
+                                <button
+                                    class="w-2 h-2 bg-white rounded-full opacity-50 carousel-dot"
+                                    data-slide="1"></button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3
+                                class="text-2xl font-bold mb-3 text-gray-800">DIS-MOI
+                                TOUT</h3>
+                            <p class="text-gray-600 mb-4 leading-relaxed">
+                                Une initiative qui rassemble les jeunes pour
+                                discuter de sujets importants et variés
+                                essentiels dans notre société.
+                                Ces rencontres visent à sensibiliser les jeunes
+                                sur des enjeux cruciaux, renforcer les liens
+                                communautaires et encourager le partage.
+                            </p>
+                            <div
+                                class="flex items-center text-blue-600 bg-blue-50 p-3 rounded-lg">
+                                <i class="fas fa-comments mr-3 text-lg"></i>
+                                <span class="font-medium">Discussion •
+                                    Sensibilisation • Communauté</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- O'KPON -->
+                    <div
+                        class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100">
+                        <div class="relative h-64 overflow-hidden">
+                            <div class="carousel" data-carousel="okpon">
+                                <img
+                                    src="https://images.pexels.com/photos/8923181/pexels-photo-8923181.jpeg"
+                                    alt="O'Kpon 1"
+                                    class="w-full h-64 object-cover carousel-image active">
+                                <img
+                                    src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg"
+                                    alt="O'Kpon 2"
+                                    class="w-full h-64 object-cover carousel-image">
+                            </div>
+                            <div class="absolute top-4 left-4">
+                                <span
+                                    class="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Éducation</span>
+                            </div>
+                            <div
+                                class="absolute bottom-4 right-4 flex space-x-2">
+                                <button
+                                    class="w-2 h-2 bg-white rounded-full opacity-50 carousel-dot active"
+                                    data-slide="0"></button>
+                                <button
+                                    class="w-2 h-2 bg-white rounded-full opacity-50 carousel-dot"
+                                    data-slide="1"></button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3
+                                class="text-2xl font-bold mb-3 text-gray-800">O'KPON</h3>
+                            <p class="text-gray-600 mb-4 leading-relaxed">
+                                Aspire à créer un environnement éducatif
+                                dynamique où les enfants et jeunes peuvent
+                                acquérir des compétences essentielles
+                                pour relever les défis de demain, avec un accent
+                                sur la prise de parole en public.
+                            </p>
+                            <div
+                                class="flex items-center text-green-600 bg-green-50 p-3 rounded-lg">
+                                <i class="fas fa-microphone mr-3 text-lg"></i>
+                                <span class="font-medium">Éducation • Leadership
+                                    • Prise de parole</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- WEEK-END EN VOYAGE -->
+                    <div
+                        class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100">
+                        <div class="relative h-64 overflow-hidden">
+                            <div class="carousel" data-carousel="voyage">
+                                <img
+                                    src="https://images.pexels.com/photos/2422915/pexels-photo-2422915.jpeg"
+                                    alt="Week-end voyage 1"
+                                    class="w-full h-64 object-cover carousel-image active">
+                                <img
+                                    src="https://images.pexels.com/photos/1659438/pexels-photo-1659438.jpeg"
+                                    alt="Week-end voyage 2"
+                                    class="w-full h-64 object-cover carousel-image">
+                            </div>
+                            <div class="absolute top-4 left-4">
+                                <span
+                                    class="bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Voyage</span>
+                            </div>
+                            <div
+                                class="absolute bottom-4 right-4 flex space-x-2">
+                                <button
+                                    class="w-2 h-2 bg-white rounded-full opacity-50 carousel-dot active"
+                                    data-slide="0"></button>
+                                <button
+                                    class="w-2 h-2 bg-white rounded-full opacity-50 carousel-dot"
+                                    data-slide="1"></button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3
+                                class="text-2xl font-bold mb-3 text-gray-800">WEEK-END
+                                EN VOYAGE</h3>
+                            <p class="text-gray-600 mb-4 leading-relaxed">
+                                Voyage, apprentissage et découverte. Un projet
+                                axé sur l'exploration d'un nouvel environnement
+                                de vie à travers le voyage.
+                                Rassemble les jeunes pour un moment enrichissant
+                                d'apprentissage, de découverte, de réseautage et
+                                de partage de connaissances.
+                            </p>
+                            <div
+                                class="flex items-center text-purple-600 bg-purple-50 p-3 rounded-lg">
+                                <i class="fas fa-plane mr-3 text-lg"></i>
+                                <span class="font-medium">Voyage • Apprentissage
+                                    • Découverte</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cité Verte -->
+                    <div
+                        class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100">
+                        <div class="relative h-64 overflow-hidden">
+                            <div class="carousel" data-carousel="verte">
+                                <img
+                                    src="https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg"
+                                    alt="Cité Verte 1"
+                                    class="w-full h-64 object-cover carousel-image active">
+                                <img
+                                    src="https://images.pexels.com/photos/1072824/pexels-photo-1072824.jpeg"
+                                    alt="Cité Verte 2"
+                                    class="w-full h-64 object-cover carousel-image">
+                            </div>
+                            <div class="absolute top-4 left-4">
+                                <span
+                                    class="bg-emerald-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Environnement</span>
+                            </div>
+                            <div
+                                class="absolute bottom-4 right-4 flex space-x-2">
+                                <button
+                                    class="w-2 h-2 bg-white rounded-full opacity-50 carousel-dot active"
+                                    data-slide="0"></button>
+                                <button
+                                    class="w-2 h-2 bg-white rounded-full opacity-50 carousel-dot"
+                                    data-slide="1"></button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3
+                                class="text-2xl font-bold mb-3 text-gray-800">CITÉ
+                                VERTE</h3>
+                            <p class="text-gray-600 mb-4 leading-relaxed">
+                                Vise à créer une communauté engagée dans la
+                                protection de l'environnement, impliquant
+                                activement les citoyens dans la transformation
+                                de leur environnement. Sensibilisation,
+                                reboisement et nettoyage des lieux publics.
+                            </p>
+                            <div
+                                class="flex items-center text-emerald-600 bg-emerald-50 p-3 rounded-lg">
+                                <i class="fas fa-seedling mr-3 text-lg"></i>
+                                <span class="font-medium">Environnement •
+                                    Reboisement • Sensibilisation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Happy Heart - Projet phare en pleine largeur -->
+                <div class="mt-8">
+                    <div
+                        class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100">
+                        <div class="grid grid-cols-1 lg:grid-cols-2">
+                            <div
+                                class="relative h-64 lg:h-auto overflow-hidden">
+                                <div class="carousel" data-carousel="happy">
+                                    <img
+                                        src="https://images.pexels.com/photos/8923181/pexels-photo-8923181.jpeg"
+                                        alt="Happy Heart 1"
+                                        class="w-full h-full object-cover carousel-image active">
+                                    <img
+                                        src="https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg"
+                                        alt="Happy Heart 2"
+                                        class="w-full h-full object-cover carousel-image">
+                                </div>
+                                <div class="absolute top-4 left-4">
+                                    <span
+                                        class="bg-pink-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Solidarité</span>
+                                </div>
+                                <div
+                                    class="absolute bottom-4 right-4 flex space-x-2">
+                                    <button
+                                        class="w-2 h-2 bg-white rounded-full opacity-50 carousel-dot active"
+                                        data-slide="0"></button>
+                                    <button
+                                        class="w-2 h-2 bg-white rounded-full opacity-50 carousel-dot"
+                                        data-slide="1"></button>
+                                </div>
+                            </div>
+                            <div class="p-8">
+                                <h3
+                                    class="text-3xl font-bold mb-4 text-gray-800">HAPPY
+                                    HEART</h3>
+                                <p class="text-gray-600 mb-6 leading-relaxed">
+                                    Dédier une journée entière de joie et de
+                                    gaîté aux enfants orphelins et démunis.
+                                    Chaque année, nous organisons des événements
+                                    spéciaux
+                                    dans des orphelinats avec animations
+                                    ludiques, repas partagés, ateliers de
+                                    cuisine, moments de danse et jeux
+                                    interactifs.
+                                    Les enfants reçoivent également des cadeaux
+                                    personnalisés pour les encourager à croire
+                                    en leurs rêves.
+                                </p>
+                                <div
+                                    class="flex items-center text-pink-600 bg-pink-50 p-4 rounded-lg">
+                                    <i class="fas fa-heart mr-3 text-xl"></i>
+                                    <span class="font-medium">Solidarité • Joie
+                                        • Orphelinats • Cadeaux</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Autres projets réalisés -->
+                <div class="mt-16">
+                    <h3
+                        class="text-3xl font-bold text-center mb-8 text-gray-800">Autres
+                        Projets Réalisés</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div
+                            class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition-all duration-300 border border-gray-100">
+                            <div
+                                class="bg-gradient-to-br from-blue-100 to-blue-200 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i
+                                    class="fas fa-book text-blue-600 text-2xl"></i>
+                            </div>
+                            <h4
+                                class="text-xl font-bold mb-3 text-gray-800">Practical
+                                Education</h4>
+                            <p class="text-gray-600">Formation pratique et
+                                éducation adaptée aux besoins locaux</p>
+                        </div>
+
+                        <div
+                            class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition-all duration-300 border border-gray-100">
+                            <div
+                                class="bg-gradient-to-br from-purple-100 to-purple-200 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i
+                                    class="fas fa-theater-masks text-purple-600 text-2xl"></i>
+                            </div>
+                            <h4
+                                class="text-xl font-bold mb-3 text-gray-800">Escale
+                                Culturelle</h4>
+                            <p class="text-gray-600">Promotion et préservation
+                                du patrimoine culturel local</p>
+                        </div>
+
+                        <div
+                            class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition-all duration-300 border border-gray-100">
+                            <div
+                                class="bg-gradient-to-br from-pink-100 to-pink-200 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i
+                                    class="fas fa-female text-pink-600 text-2xl"></i>
+                            </div>
+                            <h4
+                                class="text-xl font-bold mb-3 text-gray-800">AVEC
+                                ELLE</h4>
+                            <p class="text-gray-600">Autonomisation et
+                                accompagnement des femmes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Challenges Section -->
+        <section
+            class="py-16 bg-gradient-to-r from-slate-800 to-slate-900 text-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-4">Nos Défis Majeurs</h2>
+                    <div
+                        class="w-24 h-1 bg-gradient-to-r from-blue-400 to-green-400 mx-auto mb-4"></div>
+                    <p class="text-xl text-slate-300 max-w-3xl mx-auto">
+                        Pour continuer notre mission et amplifier notre impact,
+                        nous faisons face à plusieurs défis que nous surmontons
+                        avec détermination.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div
+                        class="bg-slate-700/50 backdrop-blur-sm rounded-xl p-6 border border-slate-600 hover:bg-slate-700/70 transition-all duration-300">
+                        <div
+                            class="bg-gradient-to-br from-blue-500 to-blue-600 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                            <i
+                                class="fas fa-chart-line text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Renforcement des
+                            Capacités</h3>
+                        <p class="text-slate-300 leading-relaxed">
+                            Nous travaillons continuellement à renforcer les
+                            compétences de notre équipe et à développer
+                            nos capacités organisationnelles pour mieux servir
+                            nos communautés.
+                        </p>
+                    </div>
+
+                    <div
+                        class="bg-slate-700/50 backdrop-blur-sm rounded-xl p-6 border border-slate-600 hover:bg-slate-700/70 transition-all duration-300">
+                        <div
+                            class="bg-gradient-to-br from-green-500 to-green-600 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-coins text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Mobilisation des
+                            Financements</h3>
+                        <p class="text-slate-300 leading-relaxed">
+                            La recherche de financements durables reste un défi
+                            constant pour assurer la pérennité
+                            et l'expansion de nos programmes d'impact social.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section id="news"
+            class="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2
+                        class="text-4xl font-bold mb-4 text-gray-800">Actualités</h2>
+                    <div
+                        class="w-24 h-1 bg-gradient-to-r from-blue-600 to-green-600 mx-auto mb-4"></div>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+                        Suivez nos dernières réalisations et découvrez l'impact
+                        de nos actions sur le terrain
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <article
+                        class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100">
+                        <img
+                            src="https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg"
+                            alt="Formation leadership"
+                            class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <div
+                                class="text-sm text-blue-600 mb-2 font-semibold">15
+                                Décembre 2023</div>
+                            <h3
+                                class="text-xl font-bold mb-3 text-gray-800">Lancement
+                                du projet O'KPON</h3>
+                            <p class="text-gray-600 mb-4 leading-relaxed">
+                                Nouveau programme de formation en leadership
+                                pour les jeunes de Sèmè-Podji avec focus sur la
+                                prise de parole en public.
+                            </p>
+                            <a href="#"
+                                class="text-blue-600 hover:text-blue-700 font-semibold flex items-center">
+                                Lire la suite <i
+                                    class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article
+                        class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100">
+                        <img
+                            src="https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg"
+                            alt="Reboisement" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <div
+                                class="text-sm text-green-600 mb-2 font-semibold">10
+                                Décembre 2023</div>
+                            <h3
+                                class="text-xl font-bold mb-3 text-gray-800">Cité
+                                Verte : 500 arbres plantés</h3>
+                            <p class="text-gray-600 mb-4 leading-relaxed">
+                                Grande réussite de notre campagne de reboisement
+                                communautaire avec la participation de 100
+                                bénévoles.
+                            </p>
+                            <a href="#"
+                                class="text-green-600 hover:text-green-700 font-semibold flex items-center">
+                                Lire la suite <i
+                                    class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article
+                        class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100">
+                        <img
+                            src="https://images.pexels.com/photos/8923181/pexels-photo-8923181.jpeg"
+                            alt="Happy Heart" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <div
+                                class="text-sm text-pink-600 mb-2 font-semibold">25
+                                Novembre 2023</div>
+                            <h3
+                                class="text-xl font-bold mb-3 text-gray-800">Happy
+                                Heart 2023 : Un succès</h3>
+                            <p class="text-gray-600 mb-4 leading-relaxed">
+                                Plus de 150 enfants orphelins ont bénéficié de
+                                notre événement annuel Happy Heart avec cadeaux
+                                et animations.
+                            </p>
+                            <a href="#"
+                                class="text-pink-600 hover:text-pink-700 font-semibold flex items-center">
+                                Lire la suite <i
+                                    class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Support Section -->
+        <section id="support"
+            class="py-16 bg-gradient-to-br from-blue-600 via-black-900 to-green-600 text-white relative overflow-hidden">
+            <!-- Motifs décoratifs en arrière-plan -->
+            <div class="absolute inset-0 opacity-10">
+                <div
+                    class="absolute top-10 left-10 w-32 h-32 bg-white rounded-full blur-xl"></div>
+                <div
+                    class="absolute top-32 right-20 w-24 h-24 bg-white rounded-full blur-lg"></div>
+                <div
+                    class="absolute bottom-20 left-1/4 w-20 h-20 bg-white rounded-full blur-md"></div>
+                <div
+                    class="absolute bottom-32 right-10 w-40 h-40 bg-white rounded-full blur-2xl"></div>
+            </div>
+
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">Soutenez
+                        Notre Mission</h2>
+                    <div class="w-24 h-1 bg-white mx-auto mb-6"></div>
+                    <p
+                        class="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed opacity-90">
+                        Rejoignez-nous dans notre mission de développement
+                        durable et d'autonomisation des jeunes au Bénin.
+                        Ensemble, construisons un avenir meilleur pour nos
+                        communautés.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Faire un don -->
+                    <div class="group">
+                        <div
+                            class="bg-white/20 backdrop-blur-sm rounded-2xl p-8 text-center hover:bg-white/30 transition-all duration-300 hover:scale-105 border border-white/30 h-full">
+                            <div
+                                class="bg-gradient-to-br from-yellow-400 to-orange-500 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                <i
+                                    class="fas fa-hand-holding-heart text-white text-3xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4">Faire un
+                                Don</h3>
+                            <p class="mb-6 text-lg opacity-90 leading-relaxed">
+                                Votre contribution nous aide à financer nos
+                                projets et à toucher plus de vies dans nos
+                                communautés.
+                            </p>
+                            <div class="mb-6">
+                                <div
+                                    class="flex justify-center space-x-4 text-sm opacity-80">
+                                    <span>💰 Financement projets</span>
+                                    <span>🎯 Impact direct</span>
+                                </div>
+                            </div>
+                            <a href="#contact"
+                                class="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-full inline-block transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                                <i class="fas fa-heart mr-2"></i>
+                                Donner Maintenant
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Devenir bénévole -->
+                    <div class="group">
+                        <div
+                            class="bg-white/20 backdrop-blur-sm rounded-2xl p-8 text-center hover:bg-white/30 transition-all duration-300 hover:scale-105 border border-white/30 h-full">
+                            <div
+                                class="bg-gradient-to-br from-green-400 to-blue-500 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-users text-white text-3xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4">Devenir
+                                Bénévole</h3>
+                            <p class="mb-6 text-lg opacity-90 leading-relaxed">
+                                Rejoignez nos 45 membres actifs et participez
+                                directement à nos actions sur le terrain.
+                            </p>
+                            <div class="mb-6">
+                                <div
+                                    class="flex justify-center space-x-4 text-sm opacity-80">
+                                    <span>🤝 Action directe</span>
+                                    <span>📈 Développement personnel</span>
+                                </div>
+                            </div>
+                            <a href="#contact"
+                                class="bg-white text-green-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-full inline-block transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                                <i class="fas fa-user-plus mr-2"></i>
+                                Nous Rejoindre
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Partenariat -->
+                    <div class="group">
+                        <div
+                            class="bg-white/20 backdrop-blur-sm rounded-2xl p-8 text-center hover:bg-white/30 transition-all duration-300 hover:scale-105 border border-white/30 h-full">
+                            <div
+                                class="bg-gradient-to-br from-purple-400 to-pink-500 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                <i
+                                    class="fas fa-handshake text-white text-3xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4">Partenariat</h3>
+                            <p class="mb-6 text-lg opacity-90 leading-relaxed">
+                                Collaborons ensemble pour un impact plus grand
+                                et durable dans nos communautés.
+                            </p>
+                            <div class="mb-6">
+                                <div
+                                    class="flex justify-center space-x-4 text-sm opacity-80">
+                                    <span>🚀 Impact amplifié</span>
+                                    <span>🌍 Réseau étendu</span>
+                                </div>
+                            </div>
+                            <a href="#contact"
+                                class="bg-white text-purple-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-full inline-block transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                                <i class="fas fa-briefcase mr-2"></i>
+                                Devenir Partenaire
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section statistiques d'impact -->
+                <div
+                    class="mt-16 bg-white/20 backdrop-blur-sm rounded-2xl p-8 border border-white/30">
+                    <h3 class="text-2xl font-bold text-center mb-8">Votre
+                        Soutien en Action</h3>
+                    <div
+                        class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+                        <div class="group">
+                            <div
+                                class="text-3xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">45</div>
+                            <div class="text-sm opacity-80">Membres Actifs</div>
+                        </div>
+                        <div class="group">
+                            <div
+                                class="text-3xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">7+</div>
+                            <div class="text-sm opacity-80">Projets
+                                Réalisés</div>
+                        </div>
+                        <div class="group">
+                            <div
+                                class="text-3xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">1000+</div>
+                            <div class="text-sm opacity-80">Vies Impactées</div>
+                        </div>
+                        <div class="group">
+                            <div
+                                class="text-3xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">6</div>
+                            <div class="text-sm opacity-80">Années
+                                d'Expérience</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to action final -->
+                <div class="mt-12 text-center">
+                    <div
+                        class="bg-white/20 backdrop-blur-sm rounded-2xl p-8 max-w-4xl mx-auto border border-white/30">
+                        <i
+                            class="fas fa-quote-left text-3xl mb-4 opacity-70"></i>
+                        <p class="text-xl italic mb-6 leading-relaxed">
+                            "Ensemble, nous pouvons transformer des vies et bâtir un avenir durable pour les générations futures."
+                        </p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="#contact"
+                                class="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl">
+                                <i class="fas fa-envelope mr-2"></i>
+                                Contactez-nous
+                            </a>
+                            <a href="https://www.facebook.com/ongALDD"
+                                target="_blank"
+                                class="bg-blue-600 hover:bg-blue-700 font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl">
+                                <i class="fab fa-facebook mr-2"></i>
+                                Suivez-nous
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact"
+            class="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2
+                        class="text-4xl font-bold mb-4 text-gray-800">Contactez-nous</h2>
+                    <div
+                        class="w-24 h-1 bg-gradient-to-r from-blue-600 to-green-600 mx-auto mb-4"></div>
+                    <p class="text-gray-600 max-w-2xl mx-auto text-lg">
+                        Nous sommes là pour répondre à vos questions et discuter
+                        de vos idées de collaboration
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                    <!-- Contact Form -->
+                    <div
+                        class="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+                        <div class="flex items-center mb-6">
+                            <div
+                                class="bg-gradient-to-r from-blue-600 to-green-600 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                <i
+                                    class="fas fa-paper-plane text-white text-xl"></i>
+                            </div>
+                            <h3
+                                class="text-2xl font-bold text-gray-800">Envoyez-nous
+                                un message</h3>
+                        </div>
+
+                        <form action="https://formspree.io/f/your-form-id"
+                            method="POST" class="space-y-6" id="contactForm">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="form-group">
+                                    <label for="name"
+                                        class="block text-sm font-semibold text-gray-700 mb-2">
+                                        <i
+                                            class="fas fa-user mr-2 text-blue-600"></i>Nom
+                                        complet *
+                                    </label>
+                                    <input type="text" id="name" name="name"
+                                        required
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 hover:border-blue-400"
+                                        placeholder="Votre nom complet">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email"
+                                        class="block text-sm font-semibold text-gray-700 mb-2">
+                                        <i
+                                            class="fas fa-envelope mr-2 text-green-600"></i>Email
+                                        *
+                                    </label>
+                                    <input type="email" id="email" name="email"
+                                        required
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:border-green-400"
+                                        placeholder="votre@email.com">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone"
+                                    class="block text-sm font-semibold text-gray-700 mb-2">
+                                    <i
+                                        class="fas fa-phone mr-2 text-purple-600"></i>Téléphone
+                                </label>
+                                <input type="tel" id="phone" name="phone"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 hover:border-purple-400"
+                                    placeholder="+229 XX XX XX XX">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject"
+                                    class="block text-sm font-semibold text-gray-700 mb-2">
+                                    <i
+                                        class="fas fa-tag mr-2 text-orange-600"></i>Sujet
+                                    *
+                                </label>
+                                <select id="subject" name="subject" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-300 hover:border-orange-400">
+                                    <option value>Sélectionnez un sujet</option>
+                                    <option value="don">💰 Faire un don</option>
+                                    <option value="benevolat">🤝 Devenir
+                                        bénévole</option>
+                                    <option value="partenariat">🤝
+                                        Partenariat</option>
+                                    <option value="projet">🎯 Proposer un
+                                        projet</option>
+                                    <option value="information">ℹ️ Demande
+                                        d'information</option>
+                                    <option value="autre">📝 Autre</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message"
+                                    class="block text-sm font-semibold text-gray-700 mb-2">
+                                    <i
+                                        class="fas fa-comment mr-2 text-pink-600"></i>Message
+                                    *
+                                </label>
+                                <textarea id="message" name="message" rows="5"
+                                    required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-300 hover:border-pink-400 resize-none"
+                                    placeholder="Décrivez votre message, vos questions ou vos idées..."></textarea>
+                            </div>
+
+                            <div class="flex items-center mb-4">
+                                <input type="checkbox" id="consent"
+                                    name="consent" required
+                                    class="mr-3 w-4 h-4 text-blue-600">
+                                <label for="consent"
+                                    class="text-sm text-gray-600">
+                                    J'accepte que mes données soient utilisées
+                                    pour répondre à ma demande *
+                                </label>
+                            </div>
+
+                            <button type="submit"
+                                class="w-full bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white font-bold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                                <i class="fas fa-paper-plane mr-2"></i>
+                                Envoyer le message
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="space-y-8">
+                        <!-- Informations principales -->
+                        <div
+                            class="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+                            <div class="flex items-center mb-6">
+                                <div
+                                    class="bg-gradient-to-r from-purple-600 to-pink-600 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                    <i
+                                        class="fas fa-info-circle text-white text-xl"></i>
+                                </div>
+                                <h3
+                                    class="text-2xl font-bold text-gray-800">Informations
+                                    de contact</h3>
+                            </div>
+
+                            <div class="space-y-6">
+                                <div
+                                    class="flex items-start group hover:bg-gray-50 p-3 rounded-lg transition-colors duration-300">
+                                    <div
+                                        class="bg-red-100 w-12 h-12 rounded-full flex items-center justify-center mr-4 group-hover:bg-red-200 transition-colors duration-300">
+                                        <i
+                                            class="fas fa-map-marker-alt text-red-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4
+                                            class="font-semibold text-gray-900 mb-1">Adresse</h4>
+                                        <p
+                                            class="text-gray-600 leading-relaxed">
+                                            Bénin, Département de l'Ouémé<br>
+                                            Commune de Sèmè-Podji<br>
+                                            Arrondissement d'Ekpè<br>
+                                            Quartier Djeffa-Gbago, M/ KPAKO
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="flex items-center group hover:bg-gray-50 p-3 rounded-lg transition-colors duration-300">
+                                    <div
+                                        class="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mr-4 group-hover:bg-green-200 transition-colors duration-300">
+                                        <i
+                                            class="fas fa-phone text-green-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4
+                                            class="font-semibold text-gray-900 mb-1">Téléphone</h4>
+                                        <a href="tel:+22901629258668"
+                                            class="text-green-600 hover:text-green-700 font-medium">
+                                            +229 01 62 92 58 68
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="flex items-center group hover:bg-gray-50 p-3 rounded-lg transition-colors duration-300">
+                                    <div
+                                        class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mr-4 group-hover:bg-blue-200 transition-colors duration-300">
+                                        <i
+                                            class="fas fa-envelope text-blue-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4
+                                            class="font-semibold text-gray-900 mb-1">Email</h4>
+                                        <a href="mailto:alddong1@gmail.com"
+                                            class="text-blue-600 hover:text-blue-700 font-medium">
+                                            alddong1@gmail.com
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="flex items-center group hover:bg-gray-50 p-3 rounded-lg transition-colors duration-300">
+                                    <div
+                                        class="bg-indigo-100 w-12 h-12 rounded-full flex items-center justify-center mr-4 group-hover:bg-indigo-200 transition-colors duration-300">
+                                        <i
+                                            class="fab fa-facebook text-indigo-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4
+                                            class="font-semibold text-gray-900 mb-1">Facebook</h4>
+                                        <a
+                                            href="https://www.facebook.com/ongALDD?mibextid=kFxxJD"
+                                            target="_blank"
+                                            class="text-indigo-600 hover:text-indigo-700 font-medium">
+                                            @ongALDD
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="flex items-start group hover:bg-gray-50 p-3 rounded-lg transition-colors duration-300">
+                                    <div
+                                        class="bg-orange-100 w-12 h-12 rounded-full flex items-center justify-center mr-4 group-hover:bg-orange-200 transition-colors duration-300">
+                                        <i
+                                            class="fas fa-clock text-orange-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4
+                                            class="font-semibold text-gray-900 mb-1">Horaires</h4>
+                                        <p class="text-gray-600">
+                                            <span class="block">📅 Lundi -
+                                                Vendredi: 8h00 - 17h00</span>
+                                            <span class="block">📅 Samedi: 9h00
+                                                - 13h00</span>
+                                            <span class="block text-red-600">📅
+                                                Dimanche: Fermé</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Réseaux sociaux -->
+                        <div
+                            class="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+                            <h3
+                                class="text-xl font-bold mb-6 text-gray-800 flex items-center">
+                                <i
+                                    class="fas fa-share-alt mr-3 text-purple-600"></i>
+                                Suivez-nous
+                            </h3>
+                            <div class="grid grid-cols-2 gap-4">
+                                <a
+                                    href="https://www.facebook.com/ongALDD?mibextid=kFxxJD"
+                                    target="_blank"
+                                    class="flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-lg transition-all duration-300 transform hover:scale-105">
+                                    <i
+                                        class="fab fa-facebook-f text-xl mr-2"></i>
+                                    Facebook
+                                </a>
+                                <a href="#"
+                                    class="flex items-center justify-center bg-blue-400 hover:bg-blue-500 text-white p-4 rounded-lg transition-all duration-300 transform hover:scale-105">
+                                    <i class="fab fa-twitter text-xl mr-2"></i>
+                                    Twitter
+                                </a>
+                                <a href="#"
+                                    class="flex items-center justify-center bg-pink-600 hover:bg-pink-700 text-white p-4 rounded-lg transition-all duration-300 transform hover:scale-105">
+                                    <i
+                                        class="fab fa-instagram text-xl mr-2"></i>
+                                    Instagram
+                                </a>
+                                <a href="#"
+                                    class="flex items-center justify-center bg-blue-800 hover:bg-blue-900 text-white p-4 rounded-lg transition-all duration-300 transform hover:scale-105">
+                                    <i
+                                        class="fab fa-linkedin-in text-xl mr-2"></i>
+                                    LinkedIn
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Équipe dirigeante -->
+                        <div
+                            class="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+                            <h3
+                                class="text-xl font-bold mb-6 text-gray-800 flex items-center">
+                                <i class="fas fa-users mr-3 text-green-600"></i>
+                                Équipe dirigeante
+                            </h3>
+                            <div class="space-y-4">
+                                <div class="border-l-4 border-blue-500 pl-4">
+                                    <h4
+                                        class="font-semibold text-gray-900">DANSI
+                                        Francine</h4>
+                                    <p
+                                        class="text-sm text-gray-600">Présidente</p>
+                                    <a href="mailto:francinedansi49@gmail.com"
+                                        class="text-blue-600 text-sm">francinedansi49@gmail.com</a>
+                                </div>
+                                <div class="border-l-4 border-green-500 pl-4">
+                                    <h4 class="font-semibold text-gray-900">EZIN
+                                        Cyrilla</h4>
+                                    <p class="text-sm text-gray-600">Secrétaire
+                                        Générale</p>
+                                    <a href="mailto:Victoriaezin11@gmail.com"
+                                        class="text-green-600 text-sm">Victoriaezin11@gmail.com</a>
+                                </div>
+                                <div class="border-l-4 border-purple-500 pl-4">
+                                    <h4
+                                        class="font-semibold text-gray-900">ZEGUE
+                                        Lauriano</h4>
+                                    <p class="text-sm text-gray-600">Directeur
+                                        Exécutif</p>
+                                    <a href="mailto:zeguelauriano@gmail.com"
+                                        class="text-purple-600 text-sm">zeguelauriano@gmail.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners -->
+        <section class="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-4 text-blue-900">Nos
+                        Partenaires</h2>
+                    <div
+                        class="w-24 h-1 bg-gradient-to-r from-blue-600 to-green-600 mx-auto mb-4"></div>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+                        Nous collaborons avec des organisations de renom pour
+                        amplifier notre impact et atteindre nos objectifs de
+                        développement durable
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                    <!-- Plan International Bénin -->
+                    <div class="group">
+                        <div
+                            class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100 h-full flex flex-col justify-center">
+                            <div
+                                class="bg-gradient-to-br from-blue-500 to-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-globe text-white text-2xl"></i>
+                            </div>
+                            <h3
+                                class="text-lg font-bold text-blue-900 mb-2">Plan
+                                International Bénin</h3>
+                            <p class="text-sm text-gray-600">Organisation
+                                internationale de développement</p>
+                            <div class="mt-4 flex justify-center">
+                                <span
+                                    class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-semibold">
+                                    Développement
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ODAS -->
+                    <div class="group">
+                        <div
+                            class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100 h-full flex flex-col justify-center">
+                            <div
+                                class="bg-gradient-to-br from-green-500 to-green-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                                <i
+                                    class="fas fa-hands-helping text-white text-2xl"></i>
+                            </div>
+                            <h3
+                                class="text-lg font-bold text-green-900 mb-2">ODAS</h3>
+                            <p class="text-sm text-gray-600">Organisation de
+                                Développement et d'Action Sociale</p>
+                            <div class="mt-4 flex justify-center">
+                                <span
+                                    class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-semibold">
+                                    Action Sociale
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FOSCAO -->
+                    <div class="group">
+                        <div
+                            class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100 h-full flex flex-col justify-center">
+                            <div
+                                class="bg-gradient-to-br from-purple-500 to-purple-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-users text-white text-2xl"></i>
+                            </div>
+                            <h3
+                                class="text-lg font-bold text-purple-900 mb-2">FOSCAO</h3>
+                            <p class="text-sm text-gray-600">Forum des
+                                Organisations de la Société Civile d'Afrique de
+                                l'Ouest</p>
+                            <div class="mt-4 flex justify-center">
+                                <span
+                                    class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-semibold">
+                                    Société Civile
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- COALITION OSC-ODD -->
+                    <div class="group">
+                        <div
+                            class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100 h-full flex flex-col justify-center">
+                            <div
+                                class="bg-gradient-to-br from-orange-500 to-orange-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                                <i
+                                    class="fas fa-bullseye text-white text-2xl"></i>
+                            </div>
+                            <h3
+                                class="text-lg font-bold text-orange-900 mb-2">COALITION
+                                OSC-ODD</h3>
+                            <p class="text-sm text-gray-600">Coalition des OSC
+                                pour les Objectifs de Développement Durable</p>
+                            <div class="mt-4 flex justify-center">
+                                <span
+                                    class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-xs font-semibold">
+                                    ODD
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ipas -->
+                    <div class="group">
+                        <div
+                            class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100 h-full flex flex-col justify-center">
+                            <div
+                                class="bg-gradient-to-br from-pink-500 to-pink-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-heart text-white text-2xl"></i>
+                            </div>
+                            <h3
+                                class="text-lg font-bold text-pink-900 mb-2">Ipas</h3>
+                            <p class="text-sm text-gray-600">Organisation
+                                internationale pour la santé reproductive</p>
+                            <div class="mt-4 flex justify-center">
+                                <span
+                                    class="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-xs font-semibold">
+                                    Santé
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- COJAS -->
+                    <div class="group">
+                        <div
+                            class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100 h-full flex flex-col justify-center">
+                            <div
+                                class="bg-gradient-to-br from-indigo-500 to-indigo-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                                <i
+                                    class="fas fa-graduation-cap text-white text-2xl"></i>
+                            </div>
+                            <h3
+                                class="text-lg font-bold text-indigo-900 mb-2">COJAS</h3>
+                            <p class="text-sm text-gray-600">Conseil des
+                                Organisations de Jeunesse et d'Action
+                                Sociale</p>
+                            <div class="mt-4 flex justify-center">
+                                <span
+                                    class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs font-semibold">
+                                    Jeunesse
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section collaboration -->
+                <div
+                    class="mt-16 bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 rounded-2xl p-8 text-white text-center">
+                    <h3 class="text-2xl font-bold mb-4">Ensemble pour un Impact
+                        Durable</h3>
+                    <p class="text-lg opacity-90 mb-6 max-w-3xl mx-auto">
+                        Grâce à ces partenariats stratégiques, nous renforçons
+                        notre capacité d'action et multiplions notre impact
+                        sur le terrain pour un développement durable et
+                        inclusif.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div
+                            class="bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                            <i class="fas fa-handshake text-2xl mb-2"></i>
+                            <p class="text-sm font-semibold">Collaboration</p>
+                            <p class="text-xs opacity-90">Partenariats
+                                stratégiques</p>
+                        </div>
+                        <div
+                            class="bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                            <i class="fas fa-rocket text-2xl mb-2"></i>
+                            <p class="text-sm font-semibold">Innovation</p>
+                            <p class="text-xs opacity-90">Solutions
+                                créatives</p>
+                        </div>
+                        <div
+                            class="bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                            <i class="fas fa-chart-line text-2xl mb-2"></i>
+                            <p class="text-sm font-semibold">Impact</p>
+                            <p class="text-xs opacity-90">Résultats
+                                mesurables</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-blue-900 text-white py-12">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <!-- Logo and Description -->
+                    <div class="md:col-span-2">
+                        <div class="flex items-center mb-4">
+                            <div
+                                class="bg-lime-500 text-white w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-leaf text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">ALDD</h3>
+                                <p class="text-sm text-blue-200">Artisans de la
+                                    Liberté et du Développement Durable</p>
+                            </div>
+                        </div>
+                        <p class="text-blue-200 mb-4">
+                            Depuis novembre 2018, nous œuvrons pour le
+                            développement socio-économique des communautés
+                            en formant les leaders de demain et en promouvant un
+                            développement durable au Bénin.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a
+                                href="https://www.facebook.com/ongALDD?mibextid=kFxxJD"
+                                target="_blank"
+                                class="text-blue-200 hover:text-lime-300 transition">
+                                <i class="fab fa-facebook-f text-xl"></i>
+                            </a>
+                            <a href="#"
+                                class="text-blue-200 hover:text-lime-300 transition">
+                                <i class="fab fa-twitter text-xl"></i>
+                            </a>
+                            <a href="#"
+                                class="text-blue-200 hover:text-lime-300 transition">
+                                <i class="fab fa-instagram text-xl"></i>
+                            </a>
+                            <a href="#"
+                                class="text-blue-200 hover:text-lime-300 transition">
+                                <i class="fab fa-linkedin-in text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Liens
+                            rapides</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#about"
+                                    class="text-blue-200 hover:text-lime-300 transition">À
+                                    propos</a></li>
+                            <li><a href="#projects"
+                                    class="text-blue-200 hover:text-lime-300 transition">Nos
+                                    projets</a></li>
+                            <li><a href="#team"
+                                    class="text-blue-200 hover:text-lime-300 transition">Notre
+                                    équipe</a></li>
+                            <li><a href="#news"
+                                    class="text-blue-200 hover:text-lime-300 transition">Actualités</a></li>
+                            <li><a href="#support"
+                                    class="text-blue-200 hover:text-lime-300 transition">Nous
+                                    soutenir</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                        <div class="space-y-2 text-blue-200">
+                            <p><i
+                                    class="fas fa-envelope mr-2"></i>alddong1@gmail.com</p>
+                            <p><i class="fas fa-phone mr-2"></i>+229 01 62 92 58
+                                68</p>
+                            <p><i
+                                    class="fas fa-map-marker-alt mr-2"></i>Sèmè-Podji,
+                                Ouémé, Bénin</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-t border-blue-800 mt-8 pt-8 text-center">
+                    <p class="text-blue-200">
+                        &copy; 2023 ALDD - Artisans de la Liberté et du
+                        Développement Durable. Tous droits réservés.
+                    </p>
+                    <p class="text-blue-300 text-sm mt-2">
+                        Créée en novembre 2018 • Enregistrée et publiée au
+                        journal officiel
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+    </body>
+    <script src="js/main.js"></script>
 </html>
