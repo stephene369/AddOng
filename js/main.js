@@ -272,3 +272,42 @@ document.addEventListener('DOMContentLoaded', () => {
                 observer.observe(card);
             });
         });
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const supportSection = document.querySelector('#support-stats'); 
+    const counters = supportSection ? supportSection.querySelectorAll('.counter') : [];
+
+    function animateCounter(counter) {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const suffix = counter.getAttribute('data-suffix') || '';
+        const duration = 2000;
+        const step = target / (duration / 16);
+        let current = 0;
+
+        const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+                counter.textContent = target + suffix;
+                clearInterval(timer);
+            } else {
+                counter.textContent = Math.floor(current) + suffix;
+            }
+        }, 16);
+    }
+
+    if (supportSection && counters.length > 0) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    counters.forEach(counter => animateCounter(counter));
+                    observer.unobserve(supportSection);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        observer.observe(supportSection);
+    }
+});
+
